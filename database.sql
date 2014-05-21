@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 21. Mai 2014 um 02:20
+-- Erstellungszeit: 21. Mai 2014 um 16:30
 -- Server Version: 5.5.37-0ubuntu0.14.04.1
 -- PHP-Version: 5.5.9-1ubuntu4
 
@@ -68,14 +68,15 @@ CREATE TABLE IF NOT EXISTS `category` (
   `name` varchar(30) NOT NULL,
   `url` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Daten für Tabelle `category`
 --
 
 INSERT INTO `category` (`id`, `name`, `url`) VALUES
-(1, 'Dashboard', 'dashboard');
+(1, 'Dashboard', 'dashboard'),
+(2, 'Stundenplan', 'timetable');
 
 -- --------------------------------------------------------
 
@@ -89,14 +90,16 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `url` varchar(30) NOT NULL,
   `cat` int(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Daten für Tabelle `pages`
 --
 
 INSERT INTO `pages` (`id`, `name`, `url`, `cat`) VALUES
-(1, 'Home', 'home', 1);
+(1, 'Home', 'home', 1),
+(2, 'Gruppe 1', 'group1', 2),
+(3, 'Gruppe 2', 'group2', 2);
 
 -- --------------------------------------------------------
 
@@ -110,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `setting` varchar(200) NOT NULL,
   `value` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
 -- Daten für Tabelle `settings`
@@ -118,28 +121,29 @@ CREATE TABLE IF NOT EXISTS `settings` (
 
 INSERT INTO `settings` (`id`, `key`, `setting`, `value`) VALUES
 (1, 'website', 'title', 'FI_13A Infoseite'),
-(2, 'website', 'url', 'http://www.fi13a.de'),
-(3, 'website', 'adminurl', 'http://admin.fi13a.de'),
-(4, 'ftp', 'server', 'ftp.fi13a.de'),
-(5, 'ftp', 'port', '21'),
-(6, 'ftp', 'user', 'fi13'),
-(7, 'ftp', 'password', 'changeme'),
-(8, 'smtp', 'server', 'ssl://localhost'),
-(9, 'smtp', 'port', '465'),
-(10, 'smtp', 'user', 'noreply@fi13a.de'),
-(11, 'smtp', 'password', 'changeme'),
-(12, 'notify', 'mail', 'noreply@fi13a.de'),
-(13, 'notify', 'prefix', '[FI_13A]'),
-(14, 'notify', 'sender', 'Infowebsite'),
-(15, 'notify', 'logpath', '/var/www/vhosts/fi13a.de/httpdocs/notification_log'),
-(16, 'notify', 'confirmsubject', 'Infowebsite - Anmeldung'),
-(17, 'notify', 'remindersubject', 'Erinnerung: {DAYS}'),
-(18, 'notify', 'reminderbegin', 'Dies ist eine Erinnerungsmail fuer anstehende Hausaufgaben oder Arbeiten.\n'),
-(19, 'notify', 'testreminder', 'Folgende Arbeiten sind in {DAYS}:\n\r'),
-(20, 'notify', 'hwreminder', 'Folgende Hausaufgaben sind in {DAYS} fällig:\n\r'),
-(21, 'notify', 'reminderend', '\r\n\r\nWeitere Informationen unter {URL}\r\nDein Erinnerungsservice der {TITLE}\r\n\r\n- Dies ist eine automatisch generierte E-Mail! -'),
-(22, 'notify', 'newreg', 'Hallo!\r\n\r\nes sind neue E-Mailadressen vorhanden, welche auf eine Freischaltung warten.\r\n\r\nBitte autorisiere diese im Adminpanel unter {ADMURL} unter "E-Mails".\r\n\r\nDeine {TITLE}\r\n\r\n- Dies ist eine automatisch generierte E-Mail! -'),
-(23, 'notify', 'confirmtext', 'Hallo!\r\n	 \r\ndu hast dich auf der {TITLE} registriert und bekommst nun immer eine Benachrichtigung, wenn Hausaufgaben und Arbeiten anstehen. \r\n\r\nHier deine FTP-Logindaten:\r\n	\r\nServer: {FTPSERVER}\r\nPort: {FTPPORT}\r\nBenutzername: {FTPUSER}\r\nKennwort: {FTPPASSWORD}\r\n \r\nDer FTP ist NICHT fuer private Daten oder Aehnliches gedacht, sondern nur fuer unsere Schulsachen.\r\nBitte auch kein Weitergabe der Daten an andere, vor allem nicht Lehrer!\r\n \r\nDeine {TITLE}\r\n\r\n- Dies ist eine automatisch generierte E-Mail! -');
+(2, 'website', 'class', 'FI_13A'),
+(3, 'website', 'url', 'http://www.fi13a.de'),
+(4, 'website', 'adminurl', 'http://admin.fi13a.de'),
+(5, 'ftp', 'server', 'ftp.fi13a.de'),
+(6, 'ftp', 'port', '21'),
+(7, 'ftp', 'user', 'fi13'),
+(8, 'ftp', 'password', 'changeme'),
+(9, 'smtp', 'server', 'ssl://localhost'),
+(10, 'smtp', 'port', '465'),
+(11, 'smtp', 'user', 'noreply@fi13a.de'),
+(12, 'smtp', 'password', 'changeme'),
+(13, 'notify', 'mail', 'noreply@fi13a.de'),
+(14, 'notify', 'prefix', '[FI_13A]'),
+(15, 'notify', 'sender', 'Infowebsite'),
+(16, 'notify', 'logpath', '/var/www/vhosts/fi13a.de/httpdocs/notification_log'),
+(17, 'notify', 'confirmsubject', 'Infowebsite - Anmeldung'),
+(18, 'notify', 'remindersubject', 'Erinnerung: {DAYS}'),
+(19, 'notify', 'reminderbegin', 'Dies ist eine Erinnerungsmail fuer anstehende Hausaufgaben oder Arbeiten.\n'),
+(20, 'notify', 'testreminder', 'Folgende Arbeiten sind in {DAYS}:\n\r'),
+(21, 'notify', 'hwreminder', 'Folgende Hausaufgaben sind in {DAYS} fällig:\n\r'),
+(22, 'notify', 'reminderend', '\r\n\r\nWeitere Informationen unter {URL}\r\nDein Erinnerungsservice der {TITLE}\r\n\r\n- Dies ist eine automatisch generierte E-Mail! -'),
+(23, 'notify', 'newreg', 'Hallo!\r\n\r\nes sind neue E-Mailadressen vorhanden, welche auf eine Freischaltung warten.\r\n\r\nBitte autorisiere diese im Adminpanel unter {ADMURL} unter "E-Mails".\r\n\r\nDeine {TITLE}\r\n\r\n- Dies ist eine automatisch generierte E-Mail! -'),
+(24, 'notify', 'confirmtext', 'Hallo!\r\n	 \r\ndu hast dich auf der {TITLE} registriert und bekommst nun immer eine Benachrichtigung, wenn Hausaufgaben und Arbeiten anstehen. \r\n\r\nHier deine FTP-Logindaten:\r\n	\r\nServer: {FTPSERVER}\r\nPort: {FTPPORT}\r\nBenutzername: {FTPUSER}\r\nKennwort: {FTPPASSWORD}\r\n \r\nDer FTP ist NICHT fuer private Daten oder Aehnliches gedacht, sondern nur fuer unsere Schulsachen.\r\nBitte auch kein Weitergabe der Daten an andere, vor allem nicht Lehrer!\r\n \r\nDeine {TITLE}\r\n\r\n- Dies ist eine automatisch generierte E-Mail! -');
 
 -- --------------------------------------------------------
 

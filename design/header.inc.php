@@ -7,7 +7,7 @@
 	$result = mysql_query($sql);
 	$c = mysql_fetch_assoc($result);
 	
-	$sql = "SELECT * FROM admin_pages WHERE url='$s'";
+	$sql = "SELECT * FROM pages WHERE url='$s'";
 	$result = mysql_query($sql);
 	$s = mysql_fetch_assoc($result);
 ?>
