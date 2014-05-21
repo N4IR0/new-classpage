@@ -74,6 +74,6 @@
 				<!-- // #sidebar -->
                 
 				<!-- h2 stays for breadcrumbs -->
-				<h2><a href="<?php echo "$c[url]"; ?>"><?php echo $c['name']; ?></a> &raquo; <a href="<?php echo "$c[url]/$s[url]"; ?>" class="active"><?php echo $s['name']; ?></a></h2>
+				<h2><a href="<?php echo $c["url"]."/home"; ?>"><?php echo $c['name']; ?></a> &raquo; <a href="<?php echo "$c[url]/$s[url]"; ?>" class="active"><?php echo $s['name']; ?></a></h2>
                 
 				<div id="main">
