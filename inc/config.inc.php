@@ -28,11 +28,11 @@
 	@mysql_select_db($MYSQL["database"]) or die ("Datenbank nicht gefunden!");
 	
 	//Einlesen der $CONFIG Variablen
-	$sql = "SELECT `key`, `name`, `value` FROM `config`";
+	$sql = "SELECT `key`, `name`, `value` FROM `settings`";
 	$result = mysql_query($sql);
 	while ($row = mysql_fetch_assoc($result) {
 		$key = $row["key"];
-		$name = $row["name"];
+		$name = $row["setting"];
 		$value = $row["value"];
 		$CONFIG[$key][$name] = $value;
 	}
