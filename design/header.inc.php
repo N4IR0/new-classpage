@@ -14,17 +14,18 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+	<meta charset="utf-8">
 	<title><?php echo $CONFIG["website"]["title"]; ?></title>
 	
 	<!-- CSS -->
-	<link href="<?php echo $main; ?>/style/css/transdmin.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="<?php echo $main; ?>/style/css/tipsy.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/style/css/transdmin.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/style/css/tipsy.css" rel="stylesheet" type="text/css" media="screen" />
 	
 	<!-- JavaScripts-->
-	<script type="text/javascript" src="<?php echo $main; ?>/style/js/jquery.js"></script>
-	<script type="text/javascript" src="<?php echo $main; ?>/style/js/jquery.form-validator.min.js"></script>
-	<script type="text/javascript" src="<?php echo $main; ?>/style/js/jNice.js"></script>
-	<script type="text/javascript" src="<?php echo $main; ?>/style/js/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="/style/js/jquery.js"></script>
+	<script type="text/javascript" src="/style/js/jquery.form-validator.min.js"></script>
+	<script type="text/javascript" src="/style/js/jNice.js"></script>
+	<script type="text/javascript" src="/style/js/jquery.tipsy.js"></script>
 </head>
 
 <body>
