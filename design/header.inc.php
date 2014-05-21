@@ -1,3 +1,4 @@
+<!-- comment -->
 <?php
 	$c = mysql_real_escape_string($_GET['c']);
 	$s = mysql_real_escape_string($_GET['s']);
