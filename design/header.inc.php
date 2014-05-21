@@ -46,7 +46,7 @@
 					} else { 
 						$active = ""; 
 					}
-					echo "<li><a href='$row[url]' $active>".strtoupper($row["name"])."</a></li>";
+					echo "<li><a href='/$row[url]' $active>".strtoupper($row["name"])."</a></li>";
 				}
 			?>
 		</ul>
@@ -65,7 +65,7 @@
 								} else { 
 									$active = ""; 
 								}
-								echo "<li><a href='$c[url]/$row[url]' $active>$row[name]</a></li>";
+								echo "<li><a href='/$c[url]/$row[url]' $active>$row[name]</a></li>";
 							}   
 						?>
 					</ul>
@@ -74,6 +74,6 @@
 				<!-- // #sidebar -->
                 
 				<!-- h2 stays for breadcrumbs -->
-				<h2><a href="<?php echo $c["url"]."/home"; ?>"><?php echo $c['name']; ?></a> &raquo; <a href="<?php echo "$c[url]/$s[url]"; ?>" class="active"><?php echo $s['name']; ?></a></h2>
+				<h2><a href="<?php echo "/".$c["url"]; ?>"><?php echo $c['name']; ?></a> &raquo; <a href="<?php echo "/$c[url]/$s[url]"; ?>" class="active"><?php echo $s['name']; ?></a></h2>
                 
 				<div id="main">
