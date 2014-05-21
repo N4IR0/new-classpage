@@ -5,6 +5,9 @@
  * Date: 21.05.14
  * Time: 16:32
  * To change this template use File | Settings | File Templates.
+ *
+ * !!! for testing purposes only !!!
+ *
  */
 ?>
 <br />
