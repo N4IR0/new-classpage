@@ -33,15 +33,15 @@ function getHomework($group, $date = NULL) {
 
 
         if ($diff <= "2") {
-            $table.="<td color=\"#FF0000\">";
+            $table.="<td style='color: #FF0000;'>";
             $table.=$diff." Tage";
             $table.="</td>";
         } elseif ($diff <= "5") {
-            $table.="<td color=\"#FFFF00\">";
+            $table.= "<td style='color: #ffaf00;'>";
             $table.=$diff." Tage";
             $table.="</td>";
         } else {
-            $table.="<td color=\"#008000\">";
+            $table.="<td style='color: #008000;'>";
             $table.=$diff." Tage";
             $table.="</td>";
         }
