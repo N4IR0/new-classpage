@@ -3,18 +3,12 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 22. Mai 2014 um 20:13
+-- Erstellungszeit: 22. Mai 2014 um 21:41
 -- Server Version: 5.5.37-0ubuntu0.14.04.1
 -- PHP-Version: 5.5.9-1ubuntu4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- Datenbank: `fi13a`
@@ -131,7 +125,6 @@ CREATE TABLE IF NOT EXISTS `pages` (
 --
 
 INSERT INTO `pages` (`id`, `name`, `url`, `cat`) VALUES
-(1, 'Home', 'home', 1),
 (2, 'Gruppe 1', 'group1', 2),
 (3, 'Gruppe 2', 'group2', 2),
 (4, 'Gruppe 1', 'group1', 1),
@@ -352,7 +345,3 @@ INSERT INTO `user_lvl` (`level`, `name`) VALUES
 (2, 'Moderator'),
 (3, 'Administrator'),
 (4, 'Super Administrator');
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
