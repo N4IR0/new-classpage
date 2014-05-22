@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.12
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost:3306
--- Generation Time: May 22, 2014 at 08:24 AM
--- Server version: 5.5.37-0+wheezy1-log
--- PHP Version: 5.4.16
+-- Host: localhost
+-- Erstellungszeit: 22. Mai 2014 um 14:50
+-- Server Version: 5.5.37-0ubuntu0.14.04.1
+-- PHP-Version: 5.5.9-1ubuntu4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `fi13a_dev`
+-- Datenbank: `fi13a`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin_category`
+-- Tabellenstruktur für Tabelle `admin_category`
 --
 
 CREATE TABLE IF NOT EXISTS `admin_category` (
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `admin_category` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `admin_category`
+-- Daten für Tabelle `admin_category`
 --
 
 INSERT INTO `admin_category` (`id`, `name`, `url`, `user_lvl`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `admin_category` (`id`, `name`, `url`, `user_lvl`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin_pages`
+-- Tabellenstruktur für Tabelle `admin_pages`
 --
 
 CREATE TABLE IF NOT EXISTS `admin_pages` (
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `admin_pages` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `admin_pages`
+-- Daten für Tabelle `admin_pages`
 --
 
 INSERT INTO `admin_pages` (`id`, `name`, `url`, `cat`, `user_lvl`) VALUES
@@ -66,7 +66,7 @@ INSERT INTO `admin_pages` (`id`, `name`, `url`, `cat`, `user_lvl`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Tabellenstruktur für Tabelle `category`
 --
 
 CREATE TABLE IF NOT EXISTS `category` (
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `category` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `category`
+-- Daten für Tabelle `category`
 --
 
 INSERT INTO `category` (`id`, `name`, `url`) VALUES
@@ -87,22 +87,57 @@ INSERT INTO `category` (`id`, `name`, `url`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `homework`
+-- Tabellenstruktur für Tabelle `homework_group1`
 --
 
-CREATE TABLE IF NOT EXISTS `homework` (
+CREATE TABLE IF NOT EXISTS `homework_group1` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `subject` varchar(20) DEFAULT NULL,
   `description` text,
   `date` varchar(15) DEFAULT NULL,
   `notify_date` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Daten für Tabelle `homework_group1`
+--
+
+INSERT INTO `homework_group1` (`id`, `subject`, `description`, `date`, `notify_date`) VALUES
+(1, 'Englisch', 'Aufsatz', '20141224', '20141220'),
+(2, 'Deutsch', 'Lernen', '20151224', '20151220'),
+(3, 'Englisch', 'Aufsatz', '20141224', '20141220'),
+(4, 'Deutsch', 'Lernen', '20151224', '20151220');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages`
+-- Tabellenstruktur für Tabelle `homework_group2`
+--
+
+CREATE TABLE IF NOT EXISTS `homework_group2` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(20) DEFAULT NULL,
+  `description` text,
+  `date` varchar(15) DEFAULT NULL,
+  `notify_date` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Daten für Tabelle `homework_group2`
+--
+
+INSERT INTO `homework_group2` (`id`, `subject`, `description`, `date`, `notify_date`) VALUES
+(1, 'Englisch', 'Aufsatz', '20141224', '20141220'),
+(2, 'Deutsch', 'Lernen', '20151224', '20151220'),
+(3, 'Englisch', 'Aufsatz', '20141224', '20141220'),
+(4, 'Deutsch', 'Lernen', '20151224', '20151220');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `pages`
 --
 
 CREATE TABLE IF NOT EXISTS `pages` (
@@ -111,21 +146,23 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `url` varchar(30) NOT NULL,
   `cat` int(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `pages`
+-- Daten für Tabelle `pages`
 --
 
 INSERT INTO `pages` (`id`, `name`, `url`, `cat`) VALUES
 (1, 'Home', 'home', 1),
 (2, 'Gruppe 1', 'group1', 2),
-(3, 'Gruppe 2', 'group2', 2);
+(3, 'Gruppe 2', 'group2', 2),
+(4, 'Gruppe 1', 'group1', 1),
+(5, 'Gruppe 2', 'group2', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `schedule_group1`
+-- Tabellenstruktur für Tabelle `schedule_group1`
 --
 
 CREATE TABLE IF NOT EXISTS `schedule_group1` (
@@ -141,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `schedule_group1` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `schedule_group2`
+-- Tabellenstruktur für Tabelle `schedule_group2`
 --
 
 CREATE TABLE IF NOT EXISTS `schedule_group2` (
@@ -157,7 +194,7 @@ CREATE TABLE IF NOT EXISTS `schedule_group2` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `settings`
+-- Tabellenstruktur für Tabelle `settings`
 --
 
 CREATE TABLE IF NOT EXISTS `settings` (
@@ -169,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
--- Dumping data for table `settings`
+-- Daten für Tabelle `settings`
 --
 
 INSERT INTO `settings` (`id`, `key`, `setting`, `value`) VALUES
@@ -201,7 +238,7 @@ INSERT INTO `settings` (`id`, `key`, `setting`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tabellenstruktur für Tabelle `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -218,7 +255,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_lvl`
+-- Tabellenstruktur für Tabelle `user_lvl`
 --
 
 CREATE TABLE IF NOT EXISTS `user_lvl` (
@@ -228,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `user_lvl` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_lvl`
+-- Daten für Tabelle `user_lvl`
 --
 
 INSERT INTO `user_lvl` (`level`, `name`) VALUES

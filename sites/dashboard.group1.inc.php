@@ -12,7 +12,7 @@
 
 function getHomework($date = NULL) {
     $table = NULL;
-    $query= "SELECT `id`, `subject`, `date`, `notify_date` FROM `homework`";
+    $query= "SELECT `id`, `subject`, `description`, `date`, `notify_date` FROM `homework` LIMIT 10";
 
     $result= mysql_query($query);
 
@@ -32,17 +32,17 @@ function getHomework($date = NULL) {
             $table.="</td>";
         $table.="</tr>";
     }
-    return mysql_error();
+    return $table;
 }
 ?>
 <br />
-<h1>Übersicht der anstehenden Arbeiten</h1>
+<h1>Übersicht der nächsten 10 anstehenden Hausaufgaben</h1>
 <table>
     <thead>
         <th>ID</th>
         <th>Fach</th>
+        <th>Beschreibung</th>
         <th>Datum</th>
-        <th>Wertigkeit</th>
     <?php echo getHomework();?>
     </thead>
 
