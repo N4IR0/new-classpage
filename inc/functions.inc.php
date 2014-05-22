@@ -13,7 +13,7 @@
 		$day = date("N", $timestamp);
 		if ($day == "1") {
 			$monday = strtotime("now", $timestamp);
-		} elseif ($day == "7") {
+		} elseif ($day >= "6") {
 			$monday = strtotime("next monday", $timestamp);
 		} else {
 			$monday = strtotime("last monday", $timestamp);
