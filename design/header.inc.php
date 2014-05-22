@@ -1,6 +1,6 @@
 <!-- comment -->
 <?php
-	$c = mysql_real_escape_string($_GET['c']);
+	$c = "/".mysql_real_escape_string($_GET['c']);
 	$s = mysql_real_escape_string($_GET['s']);
 	
 	$sql = "SELECT * FROM category WHERE url='$c'";
@@ -47,7 +47,11 @@
 					} else { 
 						$active = ""; 
 					}
-					echo "<li><a href='/$row[url]' $active>".strtoupper($row["name"])."</a></li>";
+					$target = "";
+					if ($row["external"] == 1) {
+						$target = "target='_blank'";
+					}
+					echo "<li><a href='$row[url]' $target $active>".strtoupper($row["name"])."</a></li>";
 				}
 			?>
 		</ul>
@@ -61,12 +65,12 @@
 							$sql = "SELECT * FROM pages WHERE cat='$c[id]'";
 							$result = mysql_query($sql);
 							while($row = mysql_fetch_assoc($result)) {
-								if($s['url'] == $row['url']) { 
+								if($s['url'] == $row['url']) {
 									$active = "class='active'"; 
 								} else { 
 									$active = ""; 
 								}
-								echo "<li><a href='/$c[url]/$row[url]' $active>$row[name]</a></li>";
+								echo "<li><a href='$c[url]/$row[url]' $active>$row[name]</a></li>";
 							}   
 						?>
 					</ul>
@@ -79,7 +83,7 @@
 				if ($_GET["c"] == "impressum") {
 					echo "<h2> &raquo; <a href='/impressum' class='active'>Impressum</a></h2>";
 				} else {
-					echo "<h2><a href='/".$c["url"]."'>".$c["name"]."</a> &raquo; <a href='/".$c["url"]."/".$s["url"]."' class='active'>".$s["name"]."</a></h2>";
+					echo "<h2><a href='".$c["url"]."'>".$c["name"]."</a> &raquo; <a href='".$c["url"]."/".$s["url"]."' class='active'>".$s["name"]."</a></h2>";
 				}
         ?>
 				<div id="main">
