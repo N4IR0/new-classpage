@@ -26,7 +26,7 @@ if (isset($_GET["id1"]) && isset($_GET["id2"])) {
     $html.= "</tr>";
     $html.= "<tr>";
     $html.="<td>Datum</td>";
-    $html.="<td>".$data['date']."</td>";
+    $html.="<td>".date("d.m.Y",$data['date'])."</td>";
     $html.= "</tr>";
     $html.= "<tr>";
     $html.="<td>Benachichtigt am</td>";
