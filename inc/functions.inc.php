@@ -16,7 +16,7 @@ function getHomework($group, $id = NULL, $date = NULL) {
     } else {
         $table = NULL;
         $timestamp = time();
-        $query= "SELECT `id`, `subject`, `description`, `date`, `notify_date` FROM `homework` WHERE `date` >= '$timestamp' AND `group` = '$group' LIMIT 10";
+        $query= "SELECT `id`, `subject`, `description`, `date`, `notify_date` FROM `homework` WHERE `date` >= '$timestamp' AND (`group` = 'group0' OR `group` = '$group') LIMIT 10";
         $result= mysql_query($query);
         while($row = mysql_fetch_assoc($result)) {
             $table.="<tr>";
