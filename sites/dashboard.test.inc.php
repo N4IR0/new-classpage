@@ -12,10 +12,8 @@
 
 function getHomework($date = NULL) {
     $table = NULL;
-    if($date == NULL) {
-        $query="SELECT * FROM `ḩomeworks`";
-    } else {
-    }
+    $query= "SELECT `id`, `subject`, `date`, `notify_date` FROM `homework`";
+
     $result= mysql_query($query);
 
     while($row = mysql_fetch_assoc($result)) {
@@ -34,6 +32,7 @@ function getHomework($date = NULL) {
             $table.="</td>";
         $table.="</tr>";
     }
+    return mysql_error();
 }
 ?>
 <br />
@@ -44,6 +43,7 @@ function getHomework($date = NULL) {
         <th>Fach</th>
         <th>Datum</th>
         <th>Wertigkeit</th>
+    <?php echo getHomework();?>
     </thead>
 
 </table>
