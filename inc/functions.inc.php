@@ -54,6 +54,9 @@
 						$timetable .= "<td style='text-align: center; color: #FF0000;'>";
 						if ($substitution["type"] == 0) {
 							$timetable .= "<b>--</b>";
+						} elseif ($substitution["type"] == 2) {
+							$timetable .= "<b>--</b><br>";
+							$timetable .= "$substitution[lesson]";
 						} else {
 							$timetable .= "<b>$substitution[lesson]</b><br>";
 							$timetable .= "$substitution[teacher]";

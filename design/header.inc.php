@@ -75,6 +75,11 @@
 				<!-- // #sidebar -->
                 
 				<!-- h2 stays for breadcrumbs -->
-				<h2><a href="<?php echo "/".$c["url"]; ?>"><?php echo $c['name']; ?></a> &raquo; <a href="<?php echo "/$c[url]/$s[url]"; ?>" class="active"><?php echo $s['name']; ?></a></h2>
-                
+				<?php
+				if ($_GET["c"] == "impressum") {
+					echo "<h2> &raquo; <a href='/impressum' class='active'>Impressum</a></h2>";
+				} else {
+					echo "<h2><a href='/".$c["url"]."'>".$c["name"]."</a> &raquo; <a href='/".$c["url"]."/".$s["url"]."' class='active'>".$s["name"]."</a></h2>";
+				}
+        ?>
 				<div id="main">
