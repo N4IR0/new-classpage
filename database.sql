@@ -1,23 +1,29 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Erstellungszeit: 21. Mai 2014 um 16:30
--- Server Version: 5.5.37-0ubuntu0.14.04.1
--- PHP-Version: 5.5.9-1ubuntu4
+-- Host: localhost:3306
+-- Generation Time: May 22, 2014 at 08:24 AM
+-- Server version: 5.5.37-0+wheezy1-log
+-- PHP Version: 5.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
 --
--- Datenbank: `fi13a`
+-- Database: `fi13a_dev`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `admin_category`
+-- Table structure for table `admin_category`
 --
 
 CREATE TABLE IF NOT EXISTS `admin_category` (
@@ -29,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `admin_category` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Daten für Tabelle `admin_category`
+-- Dumping data for table `admin_category`
 --
 
 INSERT INTO `admin_category` (`id`, `name`, `url`, `user_lvl`) VALUES
@@ -38,7 +44,7 @@ INSERT INTO `admin_category` (`id`, `name`, `url`, `user_lvl`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `admin_pages`
+-- Table structure for table `admin_pages`
 --
 
 CREATE TABLE IF NOT EXISTS `admin_pages` (
@@ -51,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `admin_pages` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Daten für Tabelle `admin_pages`
+-- Dumping data for table `admin_pages`
 --
 
 INSERT INTO `admin_pages` (`id`, `name`, `url`, `cat`, `user_lvl`) VALUES
@@ -60,7 +66,7 @@ INSERT INTO `admin_pages` (`id`, `name`, `url`, `cat`, `user_lvl`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `category`
+-- Table structure for table `category`
 --
 
 CREATE TABLE IF NOT EXISTS `category` (
@@ -71,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `category` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Daten für Tabelle `category`
+-- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`id`, `name`, `url`) VALUES
@@ -81,7 +87,22 @@ INSERT INTO `category` (`id`, `name`, `url`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `pages`
+-- Table structure for table `homework`
+--
+
+CREATE TABLE IF NOT EXISTS `homework` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(20) DEFAULT NULL,
+  `description` text,
+  `date` varchar(15) DEFAULT NULL,
+  `notify_date` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pages`
 --
 
 CREATE TABLE IF NOT EXISTS `pages` (
@@ -93,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Daten für Tabelle `pages`
+-- Dumping data for table `pages`
 --
 
 INSERT INTO `pages` (`id`, `name`, `url`, `cat`) VALUES
@@ -104,7 +125,39 @@ INSERT INTO `pages` (`id`, `name`, `url`, `cat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `settings`
+-- Table structure for table `schedule_group1`
+--
+
+CREATE TABLE IF NOT EXISTS `schedule_group1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mon` varchar(20) DEFAULT NULL,
+  `tue` varchar(20) DEFAULT NULL,
+  `wed` varchar(20) DEFAULT NULL,
+  `thu` varchar(20) DEFAULT NULL,
+  `fri` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `schedule_group2`
+--
+
+CREATE TABLE IF NOT EXISTS `schedule_group2` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mon` varchar(20) DEFAULT NULL,
+  `tue` varchar(20) DEFAULT NULL,
+  `wed` varchar(20) DEFAULT NULL,
+  `thu` varchar(20) DEFAULT NULL,
+  `fri` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
 --
 
 CREATE TABLE IF NOT EXISTS `settings` (
@@ -116,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
--- Daten für Tabelle `settings`
+-- Dumping data for table `settings`
 --
 
 INSERT INTO `settings` (`id`, `key`, `setting`, `value`) VALUES
@@ -148,7 +201,7 @@ INSERT INTO `settings` (`id`, `key`, `setting`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -165,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `user_lvl`
+-- Table structure for table `user_lvl`
 --
 
 CREATE TABLE IF NOT EXISTS `user_lvl` (
@@ -175,7 +228,7 @@ CREATE TABLE IF NOT EXISTS `user_lvl` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Daten für Tabelle `user_lvl`
+-- Dumping data for table `user_lvl`
 --
 
 INSERT INTO `user_lvl` (`level`, `name`) VALUES
@@ -183,3 +236,7 @@ INSERT INTO `user_lvl` (`level`, `name`) VALUES
 (2, 'Moderator'),
 (3, 'Administrator'),
 (4, 'Super Administrator');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

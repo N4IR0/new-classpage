@@ -9,6 +9,32 @@
  * !!! for testing purposes only !!!
  *
  */
+
+function getHomework($date = NULL) {
+    $table = NULL;
+    if($date == NULL) {
+        $query="SELECT * FROM `ḩomeworks`";
+    } else {
+    }
+    $result= mysql_query($query);
+
+    while($row = mysql_fetch_assoc($result)) {
+        $table.="<tr>";
+            $table.="<td>";
+                $table.=$row['id'];
+            $table.="</td>";
+            $table.="<td>";
+                $table.=$row['subject'];
+            $table.="</td>";
+            $table.="<td>";
+                $table.=$row['description'];
+            $table.="</td>";
+            $table.="<td>";
+                $table.=$row['date'];
+            $table.="</td>";
+        $table.="</tr>";
+    }
+}
 ?>
 <br />
 <h1>Übersicht der anstehenden Arbeiten</h1>
@@ -19,19 +45,7 @@
         <th>Datum</th>
         <th>Wertigkeit</th>
     </thead>
-    <tr>
-        <td>1
-        </td>
-        <td>
-            EBA-Java
-        </td>
-        <td>
-            24.12.2014
-        </td>
-        <td>
-            doppelt
-        </td>
-    </tr>
+
 </table>
 <h1>Übersicht der anstehenden Arbeiten</h1>
 <table>
