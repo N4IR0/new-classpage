@@ -10,6 +10,24 @@
 	$sql = "SELECT * FROM pages WHERE url='$s'";
 	$result = mysql_query($sql);
 	$s = mysql_fetch_assoc($result);
+
+	if (isset($_POST["defaultGroup"])) {
+		if ($_POST["defaultGroup"] == "none") {
+			setcookie("group", "", time()-(3600*24*31*365));
+		} elseif ($_POST["defaultGroup"] == "g1") {
+			setcookie("group", "", time()-(3600*24*31*365));
+			setcookie("group", "1", time()+(3600*24*31*365), "/");
+		} elseif ($_POST["defaultGroup"] == "g2") {
+			setcookie("group", "", time()-(3600*24*31*365));
+			setcookie("group", "2", time()+(3600*24*31*365), "/");
+		}
+		if (!$_SERVER['HTTPS']) {
+			$proto = "http";
+		} else {
+			$proto = "https";
+		}
+		header('Location: '.$proto.'://'.$_SERVER["SERVER_NAME"].$c["url"].'/'.$s["url"]);
+	}
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +45,7 @@
 	<script type="text/javascript" src="/style/js/jquery.form-validator.min.js"></script>
 	<script type="text/javascript" src="/style/js/jNice.js"></script>
 	<script type="text/javascript" src="/style/js/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="/style/js/own.js"></script>
 </head>
 
 <body>
@@ -34,6 +53,24 @@
 		<!-- h1 tag stays for the logo, you can use the a tag for linking the index page -->
 		<div id="topbar">
 			<h1><a href="#"><?php echo $CONFIG["website"]["title"]; ?></a></h1>
+			<span style="float: right; margin: 15px 5px 10px 0;">
+				<form action="<?php echo $c["url"]."/".$s["url"]; ?>" name='groupChange' id='groupChangeForm' method="post">
+					<select id="groupChangeSelect" name="defaultGroup">
+						<?php
+							$selected = array("none" => "", "g1" => "", "g2" => "");
+							if (isset($_COOKIE["group"]) && $_COOKIE["group"] == 1) {
+								$selected["g1"] = "selected";
+							} elseif (isset($_COOKIE["group"]) && $_COOKIE["group"] == 2) {
+								$selected["g2"] = "selected";
+							} else {
+								echo "<option value='none' ".$selected["none"].">Keine Gruppe</option>";
+							}
+							echo "<option value='g1' ".$selected["g1"].">Gruppe 1</option>";
+							echo "<option value='g2' ".$selected["g2"].">Gruppe 2</option>";
+						?>
+					</select>
+				</form>
+			</span>
 		</div>
 		
 		<!-- You can name the links with lowercase, they will be transformed to uppercase by CSS, we prefered to name them with uppercase to have the same effect with disabled stylesheet -->
