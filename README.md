@@ -31,3 +31,38 @@ This software can be used to easily display timetables, homeworks and tests. It 
 + Apache mod_rewrite, Options All, AllowOverride All enabled
 + optional: FTP for file-sharing
 + optional: Pear:Mail ( php-mail )
+
+
+## Installation | How you set it up
+
+Will be updated shortly
+
+
+## To-Do | What we want to do
+
+Stage 1 | Finished at 24th May 2014
+
+    [✔] make it work
+        [✔] display the layout and design correctly
+        [✔] display homework + tests with the time left
+        [✔] display the lessons including changed ones
+        [✔] hide homework + tests when the date is over
+
+Stage 2
+
+    [ ] improve the functions
+        [ ] display simple stats
+        [ ] display a lot of stats
+        [ ] make the path changeable
+        [ ] display both changed and original timetable
+
+Stage 3 
+
+    [ ] create an admin backend
+    [ ] notify integration
+        [ ] email when homework or tests are near
+        [ ] parse emails from teachers for dropped lessons or homework
+
+Stage 4
+
+    [ ] create an setup
