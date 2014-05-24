@@ -25,7 +25,7 @@ This software can be used to easily display timetables, homeworks and tests. It 
  + rewriting urls using htaccess
  
 
-## Requirements | What it does
+## Requirements | What it need
 
 + LAMP Server ( 5.x or better, MySQL 5.x or better )
 + Apache mod_rewrite, Options All, AllowOverride All enabled
