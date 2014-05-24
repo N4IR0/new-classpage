@@ -61,6 +61,7 @@ $s = mysql_fetch_assoc($result);
 			echo "<li><a href='$row[url]' $target $active>".strtoupper($row["name"])."</a></li>";
 		}
 		?>
+		<li class="logout"><a href="<?php echo "/logout";?>"></a></li>
 	</ul>
 	<!-- // #end mainNav -->
 

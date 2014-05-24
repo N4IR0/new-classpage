@@ -19,8 +19,11 @@ if (!empty($_POST['user']) && !empty($_POST['pw'])) {
 					
 					$c = ($_GET['c']=="" ? "dashboard" : $_GET['c']);
 					$s = ($_GET['s']=="" ? "home" : $_GET['s']);
-					
-					header('Location: '.$c."/".$s);					
+					if ($c == "login" || $c == "logout") {
+						header('Location: dashboard/home');
+					} else {
+						header('Location: '.$c."/".$s);
+					}
 				} else {
 					$status = "Dein Account ist deaktiviert.";				
 				}
