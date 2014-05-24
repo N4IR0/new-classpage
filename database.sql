@@ -161,7 +161,7 @@ INSERT INTO `settings` (`id`, `key`, `setting`, `value`) VALUES
 (3, 'website', 'url', 'http://www.fi13a.de'),
 (4, 'website', 'admin_url', 'http://admin.fi13a.de'),
 (5, 'website', 'path', '/'),
-(6, 'website', 'admin_path', '/');
+(6, 'website', 'admin_path', '/'),
 (7, 'ftp', 'server', 'ftp.fi13a.de'),
 (8, 'ftp', 'port', '21'),
 (9, 'ftp', 'user', 'fi13'),
@@ -184,7 +184,7 @@ INSERT INTO `settings` (`id`, `key`, `setting`, `value`) VALUES
 (26, 'notify', 'confirmtext', 'Hallo!\r\n	 \r\ndu hast dich auf der {TITLE} registriert und bekommst nun immer eine Benachrichtigung, wenn Hausaufgaben und Arbeiten anstehen. \r\n\r\nHier deine FTP-Logindaten:\r\n	\r\nServer: {FTPSERVER}\r\nPort: {FTPPORT}\r\nBenutzername: {FTPUSER}\r\nKennwort: {FTPPASSWORD}\r\n \r\nDer FTP ist NICHT fuer private Daten oder Aehnliches gedacht, sondern nur fuer unsere Schulsachen.\r\nBitte auch kein Weitergabe der Daten an andere, vor allem nicht Lehrer!\r\n \r\nDeine {TITLE}\r\n\r\n- Dies ist eine automatisch generierte E-Mail! -'),
 (27, 'updates', 'substitution', '1400773056'),
 (28, 'updates', 'homework', ''),
-(29, 'updates', 'tests', '')
+(29, 'updates', 'tests', '');
 
 -- --------------------------------------------------------
 

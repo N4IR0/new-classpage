@@ -2,7 +2,7 @@
 	if($_GET['id1']!="edit" AND $_GET['id1']!="delete" AND $_GET['id1']!="new") {
 		echo "<h3>Benutzer Liste</h3>";
 		
-		echo "<a href='/dashboard/users/new'>Neuer Benutzer anlegen</a><br /><br />";
+		echo "<a href='".$CONFIG["website"]["admin_path"]."dashboard/users/new'>Neuer Benutzer anlegen</a><br /><br />";
 		
 		$table1 = new tablebuilder();
 		$table1->noHeader();
@@ -24,7 +24,7 @@
 	
 			$table1->addCloum("<div title='$row[email]'><b>$row[user]</b> ($row2[name])</div>");
 			
-			$table1->addCloum("<a href='/dashboard/users/edit/$row[id]' class=edit>Bearbeiten</a><a href='/dashboard/users/delete/$row[id]' class=delete>Löschen</a>", "action");
+			$table1->addCloum("<a href='".$CONFIG["website"]["admin_path"]."dashboard/users/edit/$row[id]' class=edit>Bearbeiten</a><a href='".$CONFIG["website"]["admin_path"]."dashboard/users/delete/$row[id]' class=delete>Löschen</a>", "action");
 		}
 		
 		$table1->buildTable();		
