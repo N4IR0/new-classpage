@@ -2,8 +2,8 @@
 <?php
 	if (isset($_POST["submit"])) {
 		if ($_POST["newpw"] == $_POST["newb"]) {
-			$oldpw = md5($_POST["oldpw"]);
-			$newpw = md5($_POST["newpw"]);
+			$oldpw = hash("sha256", $_POST["oldpw"]);
+			$newpw = hash("sha256", $_POST["newpw"]);
 			$user = $_SESSION["user"];
 			$sql = "SELECT password FROM users WHERE user='$user' AND password='$oldpw'";
 			$result = mysql_query($sql);

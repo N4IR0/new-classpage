@@ -7,14 +7,12 @@
 	
 	if (isset($_SESSION["login"]) && $_SESSION["login"] === true) {
 		require("inc/function.inc.php");
-				
+		$category = mysql_real_escape_string($_GET["c"]);
 		if(isset($category)) {
 			if($category=="logout") {
 				$template = "login";
 				$filename = "sites/_logout.inc.php";
 			} else {
-				$category = substr($_GET["c"], 1, -1);
-				$category = mysql_real_escape_string($category);
 				if (isset($_GET["s"])) {
 					$site = mysql_real_escape_string($_GET["s"]);
 					$filename = "sites/".$category.".".$site.".inc.php";
@@ -47,7 +45,7 @@
 				}
 			}
 		} else {
-		$filename = "sites/dashboard.home.inc.php";
+			$filename = "sites/dashboard.home.inc.php";
 		}
 	} else {
 		$template = "login";

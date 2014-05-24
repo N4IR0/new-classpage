@@ -2,7 +2,7 @@
 	if($_GET['id1']!="edit" AND $_GET['id1']!="delete" AND $_GET['id1']!="new") {
 		echo "<h3>Benutzer Liste</h3>";
 		
-		echo "<a href='$main/dashboard/users/new'>Neuer Benutzer anlegen</a><br /><br />";	
+		echo "<a href='/dashboard/users/new'>Neuer Benutzer anlegen</a><br /><br />";
 		
 		$table1 = new tablebuilder();
 		$table1->noHeader();
@@ -24,7 +24,7 @@
 	
 			$table1->addCloum("<div title='$row[email]'><b>$row[user]</b> ($row2[name])</div>");
 			
-			$table1->addCloum("<a href='$main/dashboard/users/edit/$row[id]' class=edit>Bearbeiten</a><a href='$main/dashboard/users/delete/$row[id]' class=delete>Löschen</a>", "action");
+			$table1->addCloum("<a href='/dashboard/users/edit/$row[id]' class=edit>Bearbeiten</a><a href='/dashboard/users/delete/$row[id]' class=delete>Löschen</a>", "action");
 		}
 		
 		$table1->buildTable();		
@@ -38,7 +38,12 @@
 			if($_POST['name']=="" OR $_POST['email']=="" OR $_POST['user_lvl']=="" OR $_POST['activ']=="") {
 				error("Bitte fülle alle Felder aus!");
 			} else {
-				$insql = "UPDATE users SET user='$_POST[name]', email='$_POST[email]', user_lvl='$_POST[user_lvl]', activ='$_POST[activ]' WHERE id='$_GET[id2]'";
+				$name = mysql_real_escape_string($_POST['name']);
+				$mail = mysql_real_escape_string($_POST['email']);
+				$user_lvl = mysql_real_escape_string($_POST['user_lvl']);
+				$activ = mysql_real_escape_string($_POST['activ']);
+				$id2 = mysql_real_escape_string($_GET['id2']);
+				$insql = "UPDATE users SET user='$name', email='$mail', user_lvl='$user_lvl', activ='$activ' WHERE id='$id2'";
 				if(mysql_query($insql)) {
 					info("Der User wurde erfolgreich bearbeitet!");
 				} else {
@@ -83,7 +88,12 @@
 			if($_POST['name']=="" OR $_POST['email']=="" OR $_POST['password']=="" OR $_POST['user_lvl']=="" OR $_POST['activ']=="") {
 				error("Bitte fülle alle Felder aus!");
 			} else {
-				$insql = "INSERT INTO users VALUES ('', '$_POST[name]', '".md5($_POST["password"])."', '$_POST[email]', '$_POST[user_lvl]', '$_POST[activ]')";
+				$name = mysql_real_escape_string($_POST['name']);
+				$password = hash("sha256", $_POST['password']);
+				$mail = mysql_real_escape_string($_POST['email']);
+				$user_lvl = mysql_real_escape_string($_POST['user_lvl']);
+				$activ = mysql_real_escape_string($_POST['activ']);
+				$insql = "INSERT INTO users VALUES ('', '$name', '$password', '$mail', '$user_lvl', '$activ')";
 				if(mysql_query($insql)) {
 					info("Der User wurde erfolgreich angelegt!");
 				} else {

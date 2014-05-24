@@ -7,7 +7,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
 	<!-- CSS -->
-	<link href="style/css/login.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/style/css/login.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 
 <body>
