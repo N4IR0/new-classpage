@@ -10,7 +10,7 @@ School-Class Management System
 
 ## Description | What it does
 
-This software can be use to easily display timetables, homeworks and tests. It is build for a two group block system wich is pretty uselly in a German vocational school.
+This software can be used to easily display timetables, homeworks and tests. It is build for a two group block system wich is pretty usually in a German vocational school.
 
 ###### What it exacly does:
 
