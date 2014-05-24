@@ -42,7 +42,7 @@
 	<!-- CSS -->
 	<link href="/style/css/transdmin.css" rel="stylesheet" type="text/css" media="screen" />
 	<link href="/style/css/tipsy.css" rel="stylesheet" type="text/css" media="screen" />
-    <link rel="stylesheet" href="amcharts/style.css" type="text/css">
+    <link rel="stylesheet" href="style/css/amcharts/style.css" type="text/css">
 	
 	<!-- JavaScripts-->
 	<script type="text/javascript" src="/style/js/jquery.js"></script>
