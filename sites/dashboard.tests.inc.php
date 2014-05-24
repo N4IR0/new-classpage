@@ -4,12 +4,12 @@ if (isset($_GET["id1"]) && isset($_GET["id2"])) {
     $id1 = $_GET["id1"];
     $id2 = $_GET["id2"];
 
-    $data = getScheduleData("homework", NULL, $id2);
+    $data = getScheduleData("tests", NULL, $id2);
 
-    $html = "<h3>Details zur Hausaufgabe Nr. ".$_GET["id2"]."</h3>";
+    $html = "<h3>Details zur Arbeit Nr. ".$_GET["id2"]."</h3>";
     $html.= "<table>";
     $html.= "<tr>";
-    $html.="<td>Hausaufgabe Nr.</td>";
+    $html.="<td>Arbeit Nr.</td>";
     $html.="<td>".$data['id']."</td>";
     $html.= "</tr>";
     $html.= "<tr>";
@@ -17,7 +17,7 @@ if (isset($_GET["id1"]) && isset($_GET["id2"])) {
     $html.="<td>".$data['subject']."</td>";
     $html.= "</tr>";
     $html.= "<tr>";
-    $html.="<td>Aufgabe</td>";
+    $html.="<td>Thema</td>";
     $html.="<td>".$data['topic']."</td>";
     $html.= "</tr>";
     $html.= "<tr>";

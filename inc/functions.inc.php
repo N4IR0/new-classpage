@@ -6,53 +6,54 @@
 	function info($txt) {
 		echo "<div class=correct>$txt</div>";
 	}
-function getHomework($group, $id = NULL, $date = NULL) {
 
-    if (!empty($id)) {
-        $query= "SELECT `id`, `subject`, `description`, `date`, `notify_date` FROM `homework` WHERE `id` = '$id' LIMIT 1";
-        $result= mysql_query($query);
-        $result = mysql_fetch_assoc($result);
-        return $result;
-    } else {
-        $table = NULL;
-        $timestamp = time();
-        $query= "SELECT `id`, `subject`, `description`, `date`, `notify_date` FROM `homework` WHERE `date` >= '$timestamp' AND (`group` = 'group0' OR `group` = '$group') LIMIT 10";
-        $result= mysql_query($query);
-        while($row = mysql_fetch_assoc($result)) {
-            $table.="<tr>";
-            $table.= "<td style='text-decoration: none;'>";
-            $table.="<a href='/dashboard/homework/show/".$row['id']."'>".$row['id']."</a>";
-            $table.="</td>";
-            $table.="<td>";
-            $table.=$row['subject'];
-            $table.="</td>";
-            $table.="<td>";
-            $table.=$row['description'];
-            $table.="</td>";
-            $table.="<td>";
-            $table.=date("d.m.Y",$row['date']);
-            $table.="</td>";
-            $diff = $row['date'] - $timestamp;
-            $diff = floor($diff / (3600*24));
-            if ($diff <= "2") {
-                $table.="<td style='color: #FF0000;'>";
-                $table.=$diff." Tage";
-                $table.="</td>";
-            } elseif ($diff <= "5") {
-                $table.= "<td style='color: #ffaf00;'>";
-                $table.=$diff." Tage";
-                $table.="</td>";
-            } else {
-                $table.="<td style='color: #008000;'>";
-                $table.=$diff." Tage";
-                $table.="</td>";
-            }
-             $table.="</tr>";
+function getScheduleData($type, $group, $id = NULL, $date = NULL) {
+    $type = mysql_real_escape_string($type);
+    $id = mysql_real_escape_string($id);
+    $table = NULL;
+    $timestamp = time();
+        if (!empty($id)) {
+            $query= "SELECT `id`, `subject`, `topic`, `description`, `date`, `notify_date`, `link` FROM `$type` WHERE `id` = '$id' LIMIT 1";
+            $result= mysql_query($query);
+            $result = mysql_fetch_assoc($result);
+            if ($result['link'] == NULL){ $result['link'] = "Kein Link vorhanden";}
+            return $result;
+        } else {
+            $query= "SELECT `id`, `subject`, `topic`, `date` FROM `$type` WHERE `date` >= '$timestamp' AND (`group` = '0' OR `group` = '$group') LIMIT 10";
         }
-        return $table;
+    $result= mysql_query($query);
+    while($row = mysql_fetch_assoc($result)) {
+        $table.="<tr>";
+        $table.= "<td style='text-decoration: none;'>";
+        $table.="<a href='/dashboard/tests/show/".$row['id']."'>".$row['id']."</a>";
+        $table.="</td>";
+        $table.="<td>";
+        $table.=$row['subject'];
+        $table.="</td>";
+        $table.="<td>";
+        $table.=$row['topic'];
+        $table.="</td>";
+        $table.="<td>";
+        $table.=date("d.m.Y",$row['date']);
+        $table.="</td>";
+        $diff = $row['date'] - $timestamp;
+        $diff = floor($diff / (3600*24));
+        if ($diff <= "2") {
+            $table.="<td style='color: #FF0000;'>";
+            $table.=$diff." Tage";
+            $table.="</td>";
+        } elseif ($diff <= "5") {
+            $table.= "<td style='color: #ffaf00;'>";
+            $table.=$diff." Tage";
+            $table.="</td>";
+        } else {
+            $table.="<td style='color: #008000;'>";
+            $table.=$diff." Tage";
+            $table.="</td>";
+        }
+        $table.="</tr>";
     }
-
-
+    return $table;
 }
 	function getMonday($timestamp=NULL) {
 		if (empty($timestamp)) {

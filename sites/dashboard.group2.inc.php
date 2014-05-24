@@ -13,7 +13,7 @@
         <th>Aufgabe</th>
         <th>Datum</th>
         <th>Verbleibende Tage</th>
-        <?php echo getHomework("group2");?>
+        <?php echo getScheduleData('homework', "2");?>
     </thead>
 
 </table>
@@ -22,21 +22,9 @@
     <thead>
     <th>ID</th>
     <th>Fach</th>
-    <th>Beschreibung</th>
+    <th>Thema</th>
     <th>Datum</th>
+    <th>Verbleibende Tage</th>
     </thead>
-    <tr>
-        <td>
-            1
-        </td>
-        <td>
-            Englisch
-        </td>
-        <td>
-            Vortrag auf Englisch
-        </td>
-        <td>
-            24.12.2014
-        </td>
-    </tr>
+    <?php echo getScheduleData('tests', "2");?>
 </table>

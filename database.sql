@@ -3,12 +3,18 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 22. Mai 2014 um 21:41
+-- Erstellungszeit: 24. Mai 2014 um 19:44
 -- Server Version: 5.5.37-0ubuntu0.14.04.1
 -- PHP-Version: 5.5.9-1ubuntu4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Datenbank: `fi13a`
@@ -89,9 +95,11 @@ INSERT INTO `category` (`id`, `name`, `url`, `external`) VALUES
 CREATE TABLE IF NOT EXISTS `homework` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `subject` varchar(20) DEFAULT NULL,
+  `topic` text NOT NULL,
   `description` text,
   `date` varchar(15) DEFAULT NULL,
   `notify_date` varchar(15) DEFAULT NULL,
+  `link` text,
   `group` varchar(6) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
@@ -100,11 +108,11 @@ CREATE TABLE IF NOT EXISTS `homework` (
 -- Daten für Tabelle `homework`
 --
 
-INSERT INTO `homework` (`id`, `subject`, `description`, `date`, `notify_date`, `group`) VALUES
-(1, 'Englisch', 'Aufsatz', '1419445833', '20141220', 'group1'),
-(2, 'Deutsch', 'Lernen', '1419445833', '20151220', 'group2'),
-(3, 'Englisch', 'Aufsatz', '1401211873', '20141220', 'group1'),
-(4, 'Deutsch', 'Lernen', '1400866273', '20151220', 'group2');
+INSERT INTO `homework` (`id`, `subject`, `topic`, `description`, `date`, `notify_date`, `link`, `group`) VALUES
+(1, 'Englisch', 'Aufsatz', 'Aufsatz', '1419445833', '1400952585', NULL, '1'),
+(2, 'Deutsch', 'Lernen', 'Lernen', '1419445833', '1400952585', NULL, '2'),
+(3, 'Englisch', 'Aufsatz', 'Aufsatz', '1401211873', '1400952585', NULL, '1'),
+(4, 'Deutsch', 'Lernen', 'Lernen', '1400866273', '1400952585', NULL, '2');
 
 -- --------------------------------------------------------
 
@@ -118,13 +126,14 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `url` varchar(30) NOT NULL,
   `cat` int(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Daten für Tabelle `pages`
 --
 
 INSERT INTO `pages` (`id`, `name`, `url`, `cat`) VALUES
+(1, 'Home', 'home', 1),
 (2, 'Gruppe 1', 'group1', 2),
 (3, 'Gruppe 2', 'group2', 2),
 (4, 'Gruppe 1', 'group1', 1),
@@ -250,6 +259,34 @@ INSERT INTO `teachers` (`id`, `name`, `lessons`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tabellenstruktur für Tabelle `tests`
+--
+
+CREATE TABLE IF NOT EXISTS `tests` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(20) DEFAULT NULL,
+  `topic` text NOT NULL,
+  `description` text,
+  `date` varchar(15) DEFAULT NULL,
+  `notify_date` varchar(15) DEFAULT NULL,
+  `link` text,
+  `group` varchar(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Daten für Tabelle `tests`
+--
+
+INSERT INTO `tests` (`id`, `subject`, `topic`, `description`, `date`, `notify_date`, `link`, `group`) VALUES
+(1, 'Englisch', 'Aufsatz', 'Aufsatz', '1419445833', '1400952585', '', '1'),
+(2, 'Deutsch', 'Lernen', 'Lernen', '1419445833', '1400952585', '', '2'),
+(3, 'Englisch', 'Aufsatz', 'Aufsatz', '1401211873', '1400952585', '', '1'),
+(4, 'Deutsch', 'Lernen', 'Lernen', '1400866273', '1400952585', '', '2');
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `timetable_group1`
 --
 
@@ -345,3 +382,7 @@ INSERT INTO `user_lvl` (`level`, `name`) VALUES
 (2, 'Moderator'),
 (3, 'Administrator'),
 (4, 'Super Administrator');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
