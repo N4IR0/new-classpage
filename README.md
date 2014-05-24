@@ -12,7 +12,7 @@ School-Class Management System
 
 This software can be used to easily display timetables, homeworks and tests. It is build for a two group block system wich is pretty usually in a German vocational school.
 
-###### What it exacly does:
+###### What it exactly does:
 
 1. for each group
  + display the timetable - with support for dropped lessons and changed ones
