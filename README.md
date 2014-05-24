@@ -22,3 +22,12 @@ This software can be used to easily display timetables, homeworks and tests. It 
 
 2. for all together
  + display some stats - overview for homeworks using amcharts
+ + rewriting urls using htaccess
+ 
+
+## Requirements | What it does
+
++ LAMP Server ( 5.x or better, MySQL 5.x or better )
++ Apache mod_rewrite, Options All, AllowOverride All enabled
++ opt: FTP for file-sharing
++ opt: Pear:Mail ( php-mail )
