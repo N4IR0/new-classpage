@@ -16,7 +16,7 @@ function getHomework($group, $id = NULL, $date = NULL) {
     } else {
         $table = NULL;
         $timestamp = time();
-        $query= "SELECT `id`, `subject`, `description`, `date`, `notify_date` FROM `homework` WHERE `date` >= '$timestamp' AND `group` = '$group' LIMIT 10";
+        $query= "SELECT `id`, `subject`, `description`, `date`, `notify_date` FROM `homework` WHERE `date` >= '$timestamp' AND (`group` = 'group0' OR `group` = '$group') LIMIT 10";
         $result= mysql_query($query);
         while($row = mysql_fetch_assoc($result)) {
             $table.="<tr>";
@@ -68,7 +68,10 @@ function getHomework($group, $id = NULL, $date = NULL) {
 		}
 		return $monday;
 	}
-	function buildTimetable($group) {
+	function buildTimetable($group, $timestamp=NULL) {
+		if (empty($timestamp)) {
+			$timestamp = time();
+		}
 		$timetable = NULL;
 		$sql = "SELECT `id`, `mon`, `tue`, `wed`, `thu`, `fri` FROM `timetable_group".$group."`";
 		$result = mysql_query($sql);
@@ -89,7 +92,7 @@ function getHomework($group, $id = NULL, $date = NULL) {
 			$day[2] = $row["wed"];
 			$day[3] = $row["thu"];
 			$day[4] = $row["fri"];
-			$date = getMonday();
+			$date = getMonday($timestamp);
 			for ($i = 0; $i <= 4; $i++) {
 				if (empty($day[$i])) {
 					$timetable .= "<td></td>";

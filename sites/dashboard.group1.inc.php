@@ -1,14 +1,8 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: robert
- * Date: 21.05.14
- * Time: 16:32
- * To change this template use File | Settings | File Templates.
- *
- * !!! for testing purposes only !!!
- *
- */
+	if (isset($_COOKIE["group"]) && $_COOKIE["group"] == 2) {
+		setcookie("group", "", time()-(3600*24*31*365));
+	}
+	setcookie("group", "1", time()+(3600*24*31*365), "/");
 ?>
 <h1>Übersicht der nächsten 10 anstehenden Hausaufgaben</h1>
 <table>
