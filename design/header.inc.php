@@ -1,6 +1,6 @@
 <!-- comment -->
 <?php
-	$c = "/".mysql_real_escape_string($_GET['c']);
+	$c = mysql_real_escape_string($_GET['c']);
 	$s = mysql_real_escape_string($_GET['s']);
 	
 	$sql = "SELECT * FROM category WHERE url='$c'";
@@ -26,7 +26,7 @@
 		} else {
 			$proto = "https";
 		}
-		header('Location: '.$proto.'://'.$_SERVER["SERVER_NAME"].$c["url"].'/'.$s["url"]);
+		header('Location: '.$proto.'://'.$_SERVER["SERVER_NAME"].$CONFIG["website"]["path"].$c["url"].'/'.$s["url"]);
 	}
 ?>
 
@@ -40,19 +40,19 @@
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
 
 	<!-- CSS -->
-	<link href="/style/css/transdmin.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="/style/css/tipsy.css" rel="stylesheet" type="text/css" media="screen" />
-    <link rel="stylesheet" href="style/css/amcharts/style.css" type="text/css">
+	<link href="<?php echo $CONFIG["website"]["path"]; ?>style/css/transdmin.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="<?php echo $CONFIG["website"]["path"]; ?>style/css/tipsy.css" rel="stylesheet" type="text/css" media="screen" />
+  <link href="<?php echo $CONFIG["website"]["path"]; ?>style/css/amcharts/style.css" rel="stylesheet" type="text/css">
 	
 	<!-- JavaScripts-->
-	<script type="text/javascript" src="/style/js/jquery.js"></script>
-	<script type="text/javascript" src="/style/js/jquery.form-validator.min.js"></script>
-	<script type="text/javascript" src="/style/js/jNice.js"></script>
-	<script type="text/javascript" src="/style/js/jquery.tipsy.js"></script>
-	<script type="text/javascript" src="/style/js/amcharts/amcharts.js"></script>
-	<script type="text/javascript" src="/style/js/amcharts/serial.js"></script>
-	<script type="text/javascript" src="/style/js/amcharts/amstock.js"></script>
-	<script type="text/javascript" src="/style/js/own.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery.form-validator.min.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jNice.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/amcharts/amcharts.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/amcharts/serial.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/amcharts/amstock.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/own.js"></script>
 </head>
 
 <body>
@@ -61,7 +61,7 @@
 		<div id="topbar">
 			<h1><a href="#"><?php echo $CONFIG["website"]["title"]; ?></a></h1>
 			<span style="float: right; margin: 15px 5px 10px 0;">
-				<form action="<?php echo $c["url"]."/".$s["url"]; ?>" name='groupChange' id='groupChangeForm' method="post">
+				<form action="<?php echo $CONFIG["website"]["path"].$c["url"]."/".$s["url"]; ?>" name='groupChange' id='groupChangeForm' method="post">
 					<select id="groupChangeSelect" name="defaultGroup">
 						<?php
 							$selected = array("none" => "", "g1" => "", "g2" => "");
@@ -93,11 +93,13 @@
 					}
 					$target = "";
 					if ($row["external"] == 1) {
-						$target = "target='_blank'";
+						echo "<li><a href='".$row["url"]."' target='_blank'>".strtoupper($row["name"])."</a></li>";
+					} else {
+						echo "<li><a href='".$CONFIG["website"]["path"].$row["url"]."' $active>".strtoupper($row["name"])."</a></li>";
 					}
-					echo "<li><a href='$row[url]' $target $active>".strtoupper($row["name"])."</a></li>";
 				}
 			?>
+			<li class="login"><a href="<?php echo $CONFIG["website"]["admin_url"].$CONFIG["website"]["admin_path"]; ?>" target="_blank"></a></li>
 		</ul>
 		<!-- // #end mainNav -->
 		
@@ -114,7 +116,7 @@
 								} else { 
 									$active = ""; 
 								}
-								echo "<li><a href='$c[url]/$row[url]' $active>$row[name]</a></li>";
+								echo "<li><a href='".$CONFIG["website"]["path"].$c["url"]."/$row[url]' $active>$row[name]</a></li>";
 							}   
 						?>
 					</ul>
@@ -125,9 +127,9 @@
 				<!-- h2 stays for breadcrumbs -->
 				<?php
 				if ($_GET["c"] == "impressum") {
-					echo "<h2> &raquo; <a href='/impressum' class='active'>Impressum</a></h2>";
+					echo "<h2> &raquo; <a href='".$CONFIG["website"]["path"]."impressum' class='active'>Impressum</a></h2>";
 				} else {
-					echo "<h2><a href='".$c["url"]."'>".$c["name"]."</a> &raquo; <a href='".$c["url"]."/".$s["url"]."' class='active'>".$s["name"]."</a></h2>";
+					echo "<h2><a href='".$CONFIG["website"]["path"].$c["url"]."'>".$c["name"]."</a> &raquo; <a href='".$CONFIG["website"]["path"].$c["url"]."/".$s["url"]."' class='active'>".$s["name"]."</a></h2>";
 				}
         ?>
 				<div id="main">

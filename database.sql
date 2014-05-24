@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 24. Mai 2014 um 23:07
+-- Erstellungszeit: 25. Mai 2014 um 00:36
 -- Server Version: 5.5.37-0ubuntu0.14.04.1
 -- PHP-Version: 5.5.9-1ubuntu4
 
@@ -27,14 +27,14 @@ CREATE TABLE IF NOT EXISTS `admin_category` (
   `user_lvl` int(11) NOT NULL,
   `external` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Daten für Tabelle `admin_category`
 --
 
 INSERT INTO `admin_category` (`id`, `name`, `url`, `user_lvl`, `external`) VALUES
-(1, 'Dashboard', '/dashboard', 1, 0);
+(1, 'Dashboard', 'dashboard', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `admin_pages` (
   `cat` int(2) NOT NULL,
   `user_lvl` int(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Daten für Tabelle `admin_pages`
@@ -72,17 +72,17 @@ CREATE TABLE IF NOT EXISTS `category` (
   `url` varchar(30) NOT NULL,
   `external` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Daten für Tabelle `category`
 --
 
 INSERT INTO `category` (`id`, `name`, `url`, `external`) VALUES
-(1, 'Dashboard', '/dashboard', 0),
-(2, 'Stundenplan', '/timetable', 0),
+(1, 'Dashboard', 'dashboard', 0),
+(2, 'Stundenplan', 'timetable', 0),
 (3, 'FTP-Server', 'ftp://ftp.fi13a.de', 1),
-(4, 'Statistiken', '/statistics', 0);
+(4, 'Statistiken', 'statistics', 0);
 
 -- --------------------------------------------------------
 
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `url` varchar(30) NOT NULL,
   `cat` int(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Daten für Tabelle `pages`
@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `setting` varchar(200) NOT NULL,
   `value` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
 
 --
 -- Daten für Tabelle `settings`
@@ -159,30 +159,32 @@ INSERT INTO `settings` (`id`, `key`, `setting`, `value`) VALUES
 (1, 'website', 'title', 'FI_13A Infoseite'),
 (2, 'website', 'class', 'FI_13A'),
 (3, 'website', 'url', 'http://www.fi13a.de'),
-(4, 'website', 'adminurl', 'http://admin.fi13a.de'),
-(5, 'ftp', 'server', 'ftp.fi13a.de'),
-(6, 'ftp', 'port', '21'),
-(7, 'ftp', 'user', 'fi13'),
-(8, 'ftp', 'password', 'changeme'),
-(9, 'smtp', 'server', 'ssl://localhost'),
-(10, 'smtp', 'port', '465'),
-(11, 'smtp', 'user', 'noreply@fi13a.de'),
-(12, 'smtp', 'password', 'changeme'),
-(13, 'notify', 'mail', 'noreply@fi13a.de'),
-(14, 'notify', 'prefix', '[FI_13A]'),
-(15, 'notify', 'sender', 'Infowebsite'),
-(16, 'notify', 'logpath', '/var/www/vhosts/fi13a.de/httpdocs/notification_log'),
-(17, 'notify', 'confirmsubject', 'Infowebsite - Anmeldung'),
-(18, 'notify', 'remindersubject', 'Erinnerung: {DAYS}'),
-(19, 'notify', 'reminderbegin', 'Dies ist eine Erinnerungsmail fuer anstehende Hausaufgaben oder Arbeiten.\n'),
-(20, 'notify', 'testreminder', 'Folgende Arbeiten sind in {DAYS}:\n\r'),
-(21, 'notify', 'hwreminder', 'Folgende Hausaufgaben sind in {DAYS} fällig:\n\r'),
-(22, 'notify', 'reminderend', '\r\n\r\nWeitere Informationen unter {URL}\r\nDein Erinnerungsservice der {TITLE}\r\n\r\n- Dies ist eine automatisch generierte E-Mail! -'),
-(23, 'notify', 'newreg', 'Hallo!\r\n\r\nes sind neue E-Mailadressen vorhanden, welche auf eine Freischaltung warten.\r\n\r\nBitte autorisiere diese im Adminpanel unter {ADMURL} unter "E-Mails".\r\n\r\nDeine {TITLE}\r\n\r\n- Dies ist eine automatisch generierte E-Mail! -'),
-(24, 'notify', 'confirmtext', 'Hallo!\r\n	 \r\ndu hast dich auf der {TITLE} registriert und bekommst nun immer eine Benachrichtigung, wenn Hausaufgaben und Arbeiten anstehen. \r\n\r\nHier deine FTP-Logindaten:\r\n	\r\nServer: {FTPSERVER}\r\nPort: {FTPPORT}\r\nBenutzername: {FTPUSER}\r\nKennwort: {FTPPASSWORD}\r\n \r\nDer FTP ist NICHT fuer private Daten oder Aehnliches gedacht, sondern nur fuer unsere Schulsachen.\r\nBitte auch kein Weitergabe der Daten an andere, vor allem nicht Lehrer!\r\n \r\nDeine {TITLE}\r\n\r\n- Dies ist eine automatisch generierte E-Mail! -'),
-(25, 'updates', 'substitution', '1400773056'),
-(26, 'updates', 'homework', ''),
-(27, 'updates', 'tests', '');
+(4, 'website', 'admin_url', 'http://admin.fi13a.de'),
+(5, 'website', 'path', '/'),
+(6, 'website', 'admin_path', '/');
+(7, 'ftp', 'server', 'ftp.fi13a.de'),
+(8, 'ftp', 'port', '21'),
+(9, 'ftp', 'user', 'fi13'),
+(10, 'ftp', 'password', 'changeme'),
+(11, 'smtp', 'server', 'ssl://localhost'),
+(12, 'smtp', 'port', '465'),
+(13, 'smtp', 'user', 'noreply@fi13a.de'),
+(14, 'smtp', 'password', 'changeme'),
+(15, 'notify', 'mail', 'noreply@fi13a.de'),
+(16, 'notify', 'prefix', '[FI_13A]'),
+(17, 'notify', 'sender', 'Infowebsite'),
+(18, 'notify', 'logpath', '/var/www/vhosts/fi13a.de/httpdocs/notification_log'),
+(19, 'notify', 'confirmsubject', 'Infowebsite - Anmeldung'),
+(20, 'notify', 'remindersubject', 'Erinnerung: {DAYS}'),
+(21, 'notify', 'reminderbegin', 'Dies ist eine Erinnerungsmail fuer anstehende Hausaufgaben oder Arbeiten.\n'),
+(22, 'notify', 'testreminder', 'Folgende Arbeiten sind in {DAYS}:\n\r'),
+(23, 'notify', 'hwreminder', 'Folgende Hausaufgaben sind in {DAYS} fällig:\n\r'),
+(24, 'notify', 'reminderend', '\r\n\r\nWeitere Informationen unter {URL}\r\nDein Erinnerungsservice der {TITLE}\r\n\r\n- Dies ist eine automatisch generierte E-Mail! -'),
+(25, 'notify', 'newreg', 'Hallo!\r\n\r\nes sind neue E-Mailadressen vorhanden, welche auf eine Freischaltung warten.\r\n\r\nBitte autorisiere diese im Adminpanel unter {ADMURL} unter "E-Mails".\r\n\r\nDeine {TITLE}\r\n\r\n- Dies ist eine automatisch generierte E-Mail! -'),
+(26, 'notify', 'confirmtext', 'Hallo!\r\n	 \r\ndu hast dich auf der {TITLE} registriert und bekommst nun immer eine Benachrichtigung, wenn Hausaufgaben und Arbeiten anstehen. \r\n\r\nHier deine FTP-Logindaten:\r\n	\r\nServer: {FTPSERVER}\r\nPort: {FTPPORT}\r\nBenutzername: {FTPUSER}\r\nKennwort: {FTPPASSWORD}\r\n \r\nDer FTP ist NICHT fuer private Daten oder Aehnliches gedacht, sondern nur fuer unsere Schulsachen.\r\nBitte auch kein Weitergabe der Daten an andere, vor allem nicht Lehrer!\r\n \r\nDeine {TITLE}\r\n\r\n- Dies ist eine automatisch generierte E-Mail! -'),
+(27, 'updates', 'substitution', '1400773056'),
+(28, 'updates', 'homework', ''),
+(29, 'updates', 'tests', '')
 
 -- --------------------------------------------------------
 
@@ -235,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `teachers` (
   `lessons` varchar(400) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Daten für Tabelle `teachers`
@@ -358,7 +360,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `activ` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user` (`user`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -370,7 +372,7 @@ CREATE TABLE IF NOT EXISTS `user_lvl` (
   `level` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
   PRIMARY KEY (`level`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `user_lvl`
@@ -379,5 +381,4 @@ CREATE TABLE IF NOT EXISTS `user_lvl` (
 INSERT INTO `user_lvl` (`level`, `name`) VALUES
 (1, 'Benutzer'),
 (2, 'Moderator'),
-(3, 'Administrator'),
-(4, 'Super Administrator');
+(3, 'Administrator');
