@@ -27,7 +27,7 @@ This software can be used to easily display timetables, homeworks and tests. It 
 
 ## Requirements | What it need
 
-+ LAMP Server ( 5.x or better, MySQL 5.x or better )
++ LAMP Server ( PHP 5.x ,  MySQL 5.x or better )
 + Apache mod_rewrite, Options All, AllowOverride All enabled
-+ opt: FTP for file-sharing
-+ opt: Pear:Mail ( php-mail )
++ optional: FTP for file-sharing
++ optional: Pear:Mail ( php-mail )
