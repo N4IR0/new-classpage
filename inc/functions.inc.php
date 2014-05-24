@@ -98,6 +98,9 @@ function getScheduleData($type, $group, $id = NULL, $date = NULL) {
 				if (empty($day[$i])) {
 					$timetable .= "<td></td>";
 				} else {
+					$teach_sql = "SELECT `name` FROM `teachers` WHERE `lessons` LIKE '%".$day[$i]."%'";
+					$teach_result = mysql_query($teach_sql);
+					$teach_num = mysql_num_rows($teach_result);
 					$subst_sql = "SELECT `type`, `date`, `lesson`, `hours`, `teacher`, `group` FROM `substitution` WHERE `date` = $date AND (`group` = 0 OR `group` = $group) AND `hours` LIKE '%".$row["id"]."%'";
 					$subst_result = mysql_query($subst_sql);
 					$subst_num = mysql_num_rows($subst_result);
@@ -110,16 +113,13 @@ function getScheduleData($type, $group, $id = NULL, $date = NULL) {
 							$timetable .= "<b>--</b><br>";
 							$timetable .= "$substitution[lesson]";
 						} else {
-							$timetable .= "<b>$substitution[lesson]</b><br>";
+							$timetable .= "<b>$substitution[lesson]</b><span style='text-decoration: line-through;'>($day[$i])</span><br>";
 							$timetable .= "$substitution[teacher]";
 						}
 						$timetable .= "</td>";
 					} else {
 						$timetable .= "<td style='text-align: center;'>";
 						$timetable .= $day[$i]."<br>";
-						$teach_sql = "SELECT `name` FROM `teachers` WHERE `lessons` LIKE '%".$day[$i]."%'";
-						$teach_result = mysql_query($teach_sql);
-						$teach_num = mysql_num_rows($teach_result);
 						if ($teach_num != 0) {
 							$teacher = mysql_fetch_assoc($teach_result);
 							$timetable .= $teacher["name"];
