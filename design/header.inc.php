@@ -35,7 +35,10 @@
 <head>
 	<meta charset="utf-8">
 	<title><?php echo $CONFIG["website"]["title"]; ?></title>
-	
+
+	<!-- Font -->
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+
 	<!-- CSS -->
 	<link href="/style/css/transdmin.css" rel="stylesheet" type="text/css" media="screen" />
 	<link href="/style/css/tipsy.css" rel="stylesheet" type="text/css" media="screen" />
@@ -45,6 +48,9 @@
 	<script type="text/javascript" src="/style/js/jquery.form-validator.min.js"></script>
 	<script type="text/javascript" src="/style/js/jNice.js"></script>
 	<script type="text/javascript" src="/style/js/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="/style/js/amcharts/amcharts.js"></script>
+	<script type="text/javascript" src="/style/js/amcharts/serial.js"></script>
+	<script type="text/javascript" src="/style/js/amcharts/amstock.js"></script>
 	<script type="text/javascript" src="/style/js/own.js"></script>
 </head>
 

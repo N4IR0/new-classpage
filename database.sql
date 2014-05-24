@@ -3,18 +3,12 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 24. Mai 2014 um 19:44
+-- Erstellungszeit: 24. Mai 2014 um 20:37
 -- Server Version: 5.5.37-0ubuntu0.14.04.1
 -- PHP-Version: 5.5.9-1ubuntu4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- Datenbank: `fi13a`
@@ -31,6 +25,7 @@ CREATE TABLE IF NOT EXISTS `admin_category` (
   `name` varchar(30) NOT NULL,
   `url` varchar(30) NOT NULL,
   `user_lvl` int(11) NOT NULL,
+  `external` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
@@ -38,8 +33,8 @@ CREATE TABLE IF NOT EXISTS `admin_category` (
 -- Daten für Tabelle `admin_category`
 --
 
-INSERT INTO `admin_category` (`id`, `name`, `url`, `user_lvl`) VALUES
-(1, 'Dashboard', 'dashboard', 1);
+INSERT INTO `admin_category` (`id`, `name`, `url`, `user_lvl`, `external`) VALUES
+(1, 'Dashboard', '/dashboard', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -54,14 +49,16 @@ CREATE TABLE IF NOT EXISTS `admin_pages` (
   `cat` int(2) NOT NULL,
   `user_lvl` int(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Daten für Tabelle `admin_pages`
 --
 
 INSERT INTO `admin_pages` (`id`, `name`, `url`, `cat`, `user_lvl`) VALUES
-(1, 'Home', 'home', 1, 1);
+(1, 'Home', 'home', 1, 1),
+(2, 'Account', 'account', 1, 1),
+(3, 'Benutzerverwaltung', 'users', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -75,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `url` varchar(30) NOT NULL,
   `external` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Daten für Tabelle `category`
@@ -84,7 +81,8 @@ CREATE TABLE IF NOT EXISTS `category` (
 INSERT INTO `category` (`id`, `name`, `url`, `external`) VALUES
 (1, 'Dashboard', '/dashboard', 0),
 (2, 'Stundenplan', '/timetable', 0),
-(3, 'FTP-Server', 'ftp://ftp.fi13a.de', 1);
+(3, 'FTP-Server', 'ftp://ftp.fi13a.de', 1),
+(4, 'Statistiken', '/statistics', 0);
 
 -- --------------------------------------------------------
 
@@ -126,18 +124,18 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `url` varchar(30) NOT NULL,
   `cat` int(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Daten für Tabelle `pages`
 --
 
 INSERT INTO `pages` (`id`, `name`, `url`, `cat`) VALUES
-(1, 'Home', 'home', 1),
 (2, 'Gruppe 1', 'group1', 2),
 (3, 'Gruppe 2', 'group2', 2),
 (4, 'Gruppe 1', 'group1', 1),
-(5, 'Gruppe 2', 'group2', 1);
+(5, 'Gruppe 2', 'group2', 1),
+(6, 'Übersicht', 'home', 4);
 
 -- --------------------------------------------------------
 
@@ -353,13 +351,13 @@ INSERT INTO `timetable_group2` (`id`, `mon`, `tue`, `wed`, `thu`, `fri`) VALUES
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user` varchar(50) DEFAULT NULL,
-  `password` varchar(32) DEFAULT NULL,
+  `password` varchar(64) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `user_lvl` int(1) NOT NULL,
   `activ` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user` (`user`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 -- --------------------------------------------------------
 
@@ -382,7 +380,3 @@ INSERT INTO `user_lvl` (`level`, `name`) VALUES
 (2, 'Moderator'),
 (3, 'Administrator'),
 (4, 'Super Administrator');
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,10 @@
+ErrorDocument 404 /error/404
+
+RewriteEngine On
+RewriteRule ^$ index.php?c=dashboard&s=home
+RewriteRule ^([a-zA-Z0-9_-]*)\.html$ index.php?c=$1&s=home&id1&id2
+RewriteRule ^([a-zA-Z0-9_-]*)$ index.php?c=$1&s=home&id1&id2
+RewriteRule ^([a-zA-Z0-9_-]*)/([a-zA-Z0-9_-]*)$ index.php?c=$1&s=$2&id1&id2
+RewriteRule ^([a-zA-Z0-9_-]*)/([a-zA-Z0-9_-]*)/([a-zA-Z0-9_-]*)$ index.php?c=$1&s=$2&id1=$3
+RewriteRule ^([a-zA-Z0-9_-]*)/([a-zA-Z0-9_-]*)/([a-zA-Z0-9_-]*)/([a-zA-Z0-9_-]*)$ index.php?c=$1&s=$2&id1=$3&id2=$4
+Options -Indexes
