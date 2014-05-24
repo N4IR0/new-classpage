@@ -113,7 +113,7 @@ function getScheduleData($type, $group, $id = NULL, $date = NULL) {
 							$timetable .= "<b>--</b><br>";
 							$timetable .= "$substitution[lesson]";
 						} else {
-							$timetable .= "<b>$substitution[lesson]</b><span style='text-decoration: line-through;'>($day[$i])</span><br>";
+							$timetable .= "<b>$substitution[lesson]</b><br>";
 							$timetable .= "$substitution[teacher]";
 						}
 						$timetable .= "</td>";
