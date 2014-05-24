@@ -53,7 +53,7 @@ Stage 2
     [ ] improve the functions
         [ ] display simple stats
         [ ] display a lot of stats
-        [ ] make the path changeable
+        [✔] make the path changeable
         [ ] display both changed and original timetable
 
 Stage 3 
@@ -61,7 +61,7 @@ Stage 3
     [ ] create an admin backend
     [ ] notify integration
         [ ] email when homework or tests are near
-        [ ] parse emails from teachers for dropped lessons or homework
+        [ ] email when someone change the substitution plan
 
 Stage 4
 
