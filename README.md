@@ -40,7 +40,7 @@ Will be updated shortly
 
 ## To-Do | What we want to do
 
-✔ Stage 1 | Finished at 24th May 2014
+Stage 1 ✔ Finished at 24th May 2014
 
     [✔] make it work
         [✔] display the layout and design correctly
