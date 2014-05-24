@@ -1,1 +1,1 @@
-Herzlich Willkommen zurück <?php echo $_SESSION["user"]; ?>;
+Herzlich Willkommen zurück <b><?php echo $_SESSION["name"]; ?></b>!

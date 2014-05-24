@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 24. Mai 2014 um 20:37
+-- Erstellungszeit: 24. Mai 2014 um 23:07
 -- Server Version: 5.5.37-0ubuntu0.14.04.1
 -- PHP-Version: 5.5.9-1ubuntu4
 
@@ -352,12 +352,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user` varchar(50) DEFAULT NULL,
   `password` varchar(64) DEFAULT NULL,
+  `name` varchar(200) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `user_lvl` int(1) NOT NULL,
   `activ` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user` (`user`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
