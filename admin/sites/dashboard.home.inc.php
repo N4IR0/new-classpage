@@ -1,1 +1,3 @@
-Herzlich Willkommen zurück <b><?php echo $_SESSION["name"]; ?></b>!
+<?php
+	echo "<p>Herzlich Willkommen zurück <b>".$_SESSION["name"]."</b> im Administrationsbereich!</p>";
+?>

@@ -6,7 +6,7 @@
 	require("../inc/config.inc.php");
 	
 	if (isset($_SESSION["login"]) && $_SESSION["login"] === true) {
-		require("inc/function.inc.php");
+		require("inc/functions.inc.php");
 		$category = mysql_real_escape_string($_GET["c"]);
 		if(isset($category)) {
 			if($category=="logout") {
