@@ -61,7 +61,7 @@ function getScheduleData($type, $group, $id = NULL, $date = NULL) {
 		}
 		$day = date("N", $timestamp);
 		if ($day == "1") {
-			$monday = strtotime("now", $timestamp);
+			$monday = strtotime("today", $timestamp);
 		} elseif ($day >= "6") {
 			$monday = strtotime("next monday", $timestamp);
 		} else {

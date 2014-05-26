@@ -29,8 +29,12 @@ if (isset($_GET["id1"]) && isset($_GET["id2"])) {
     $html.="<td>".date("d.m.Y",$data['date'])."</td>";
     $html.= "</tr>";
     $html.= "<tr>";
-    $html.="<td>Benachichtigt am</td>";
-    $html.="<td>".date("d.m.Y",$data['notify_date'])."</td>";
+    $html.="<td>Letzte Benachichtigung am</td>";
+		if (empty($data['notify_date'])) {
+			$html.="<td>nie</td>";
+		} else {
+			$html.="<td>".date("d.m.Y",$data['notify_date'])."</td>";
+		}
     $html.= "</tr>";
     $html.= "<tr>";
     $html.="<td>Lösung / Beispiel</td>";
