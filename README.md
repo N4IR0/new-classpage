@@ -51,7 +51,7 @@ Stage 1 ✔ Finished at 24th May 2014
 Stage 2
 
     [ ] improve the functions
-        [✔] display simple stats
+        [ ] display simple stats
         [ ] display a lot of stats
         [✔] make the path changeable
         [ ] display both changed and original timetable
