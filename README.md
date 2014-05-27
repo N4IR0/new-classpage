@@ -51,8 +51,8 @@ Stage 1 ✔ Finished at 24th May 2014
 Stage 2
 
     [ ] improve the functions
-        [ ] display simple stats
-        [ ] display a lot of stats
+        [✔] display simple stats for public interface
+        [ ] display a lot of stats inside the administration backend
         [✔] make the path changeable
         [ ] display both changed and original timetable
 
