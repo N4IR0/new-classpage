@@ -23,9 +23,9 @@
 			$month = date("n",$timestamp);
 			$day = date("j",$timestamp);
 			if ($i == $i_total) {
-				$js .="{date: new Date($year, $month, $day, 0, 0, 0, 0), val:$value}\n";
+				$js .="{date: new Date($year, $month, $day), val:$value}\n";
 			} else {
-				$js .="{date: new Date($year, $month, $day, 0, 0, 0, 0), val:$value},\n";
+				$js .="{date: new Date($year, $month, $day), val:$value},\n";
 			}
 			$i++;
 		}

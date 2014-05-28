@@ -34,7 +34,7 @@ function getScheduleData($type, $group, $id = NULL, $date = NULL) {
         $table.=$row['topic'];
         $table.="</td>";
         $table.="<td>";
-        $table.=date("d.m.Y",$row['date']);
+        $table.=date("D, d.m.Y",$row['date']);
         $table.="</td>";
         $diff = $row['date'] - $timestamp;
         $diff = floor($diff / (3600*24));
