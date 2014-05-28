@@ -73,6 +73,15 @@ h1 a {
 	padding: 0 20px;
 }
 
+#mainNav li.logout {
+    float: right;
+    border-left: 1px solid #ddd;
+    border-right: none;
+    background-image: url(../img/logout.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 #mainNav li.login {
 	float: right;
 	border-left: 1px solid #ddd;
@@ -88,6 +97,13 @@ h1 a {
 	background-image: url(../img/locked.png);
 	background-repeat: no-repeat;
 	background-position: center;
+}
+
+#mainNav li.logout a:hover {
+    background: #fdfcf6;
+    background-image: url(../img/logout.png);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #mainNav li a.active, #mainNav li a.active {

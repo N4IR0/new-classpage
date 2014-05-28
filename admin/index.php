@@ -27,6 +27,8 @@
 					$user = mysql_fetch_assoc($res);
 					if ($user['activ'] == "0") {
 						$filename = "sites/_notactive.inc.php";
+					} elseif ($user['user_lvl'] < 3) {
+						$filename = "sites/_noaccess.inc.php";
 					} else {
 						$sql = "SELECT user_lvl FROM admin_category WHERE url='$category'";
 						$res = mysql_query($sql);

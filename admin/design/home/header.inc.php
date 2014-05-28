@@ -47,7 +47,7 @@ $s = mysql_fetch_assoc($result);
 	<!-- You can name the links with lowercase, they will be transformed to uppercase by CSS, we prefered to name them with uppercase to have the same effect with disabled stylesheet -->
 	<ul id="mainNav">
 		<?php
-		$sql = "SELECT * FROM admin_category";
+		$sql = "SELECT * FROM admin_category WHERE user_lvl<='$user[user_lvl]'";
 		$result = mysql_query($sql);
 		while($row = mysql_fetch_assoc($result)) {
 			if($c['url'] == $row['url']) {
@@ -72,7 +72,7 @@ $s = mysql_fetch_assoc($result);
 			<div id="sidebar">
 				<ul class="sideNav">
 					<?php
-					$sql = "SELECT * FROM admin_pages WHERE cat='$c[id]'";
+					$sql = "SELECT * FROM admin_pages WHERE cat='$c[id]' AND user_lvl<='$user[user_lvl]'";
 					$result = mysql_query($sql);
 					while($row = mysql_fetch_assoc($result)) {
 						if($s['url'] == $row['url']) {

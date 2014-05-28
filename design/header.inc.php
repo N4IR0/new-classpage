@@ -82,48 +82,52 @@
 		
 		<!-- You can name the links with lowercase, they will be transformed to uppercase by CSS, we prefered to name them with uppercase to have the same effect with disabled stylesheet -->
 		<ul id="mainNav">
-			<?php 
-				$sql = "SELECT * FROM category";
-				$result = mysql_query($sql);
-				while($row = mysql_fetch_assoc($result)) {
-					if($c['url'] == $row['url']) { 
-						$active = "class='active'"; 
-					} else { 
-						$active = ""; 
-					}
-					$target = "";
-					if ($row["external"] == 1) {
-						echo "<li><a href='".$row["url"]."' target='_blank'>".strtoupper($row["name"])."</a></li>";
-					} else {
-						echo "<li><a href='".$CONFIG["website"]["path"].$row["url"]."' $active>".strtoupper($row["name"])."</a></li>";
-					}
+			<?php
+			$sql = "SELECT * FROM category WHERE user_lvl<='$user[user_lvl]'";
+			$result = mysql_query($sql);
+			while($row = mysql_fetch_assoc($result)) {
+				if($c['url'] == $row['url']) {
+					$active = "class='active'";
+				} else {
+					$active = "";
 				}
+				$target = "";
+				if ($row["external"] == 1) {
+					echo "<li><a href='".$row["url"]."' target='_blank'>".strtoupper($row["name"])."</a></li>";
+				} else {
+					echo "<li><a href='".$CONFIG["website"]["path"].$row["url"]."' $active>".strtoupper($row["name"])."</a></li>";
+				}
+			}
+			if (isset($_SESSION["login"]) && $_SESSION["login"] === true) {
+				echo "<li class='logout'><a href='".$CONFIG["website"]["path"]."logout'></a></li>";
+			} else {
+				echo "<li class='login'><a href='".$CONFIG["website"]["path"]."login'></a></li>";
+			}
 			?>
-			<li class="login"><a href="<?php echo $CONFIG["website"]["admin_url"].$CONFIG["website"]["admin_path"]; ?>" target="_blank"></a></li>
 		</ul>
 		<!-- // #end mainNav -->
-		
+
 		<div id="containerHolder">
 			<div id="container">
 				<div id="sidebar">
 					<ul class="sideNav">
 						<?php
-							$sql = "SELECT * FROM pages WHERE cat='$c[id]'";
-							$result = mysql_query($sql);
-							while($row = mysql_fetch_assoc($result)) {
-								if($s['url'] == $row['url']) {
-									$active = "class='active'"; 
-								} else { 
-									$active = ""; 
-								}
-								echo "<li><a href='".$CONFIG["website"]["path"].$c["url"]."/$row[url]' $active>$row[name]</a></li>";
-							}   
+						$sql = "SELECT * FROM pages WHERE cat='$c[id]' AND user_lvl<='$user[user_lvl]'";
+						$result = mysql_query($sql);
+						while($row = mysql_fetch_assoc($result)) {
+							if($s['url'] == $row['url']) {
+								$active = "class='active'";
+							} else {
+								$active = "";
+							}
+							echo "<li><a href='".$CONFIG["website"]["path"].$c["url"]."/$row[url]' $active>$row[name]</a></li>";
+						}
 						?>
 					</ul>
 					<!-- // .sideNav -->
-				</div>    
+				</div>
 				<!-- // #sidebar -->
-                
+
 				<!-- h2 stays for breadcrumbs -->
 				<?php
 				if ($_GET["c"] == "impressum") {
@@ -131,5 +135,5 @@
 				} else {
 					echo "<h2><a href='".$CONFIG["website"]["path"].$c["url"]."'>".$c["name"]."</a> &raquo; <a href='".$CONFIG["website"]["path"].$c["url"]."/".$s["url"]."' class='active'>".$s["name"]."</a></h2>";
 				}
-        ?>
+				?>
 				<div id="main">

@@ -11,6 +11,7 @@
 		}
 		$sql = "SELECT `id`, `subject`, `topic`, `description`, `date`, `notify_date`, `link`, `group` FROM `".$type."` WHERE `date` >= '".$all."'";
 		$result = mysql_query($sql);
+		return $result;
 	}
 
 	function error($txt) {
