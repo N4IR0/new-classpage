@@ -7,7 +7,7 @@
 		</div>	
 		<!-- // #containerHolder -->
 		
-		<p id="footer">&copy; Florian Voit, Robert Müller inspired by Konrad Mallok <span style="float: right; margin-right: 10px;"><a href="<?php echo $CONFIG["website"]["path"]; ?>impressum">Impressum</a></span></p>
+		<p id="footer">&copy; Florian Voit, Robert Müller inspired by Konrad Mallok - <b>Alle Angaben ohne Gewähr</b><span style="float: right; margin-right: 10px;"><a href="<?php echo $CONFIG["website"]["path"]; ?>impressum">Impressum</a></span></p>
 	</div>
 	<!-- // #wrapper -->
 	
