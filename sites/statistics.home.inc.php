@@ -1,3 +1,35 @@
+<?php $genericStats = getGenericStats(); ?>
+<h3>Allgemeine Statistik</h3>
+<br />
+<table>
+	<thead>
+		<th>Art</th>
+		<th>Anzahl</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Registrierte Benutzer</td>
+			<td><?php echo $genericStats['userscount']; ?></td>
+		</tr>
+		<tr>
+			<td>Erfasste Lehrer</td>
+			<td><?php echo $genericStats['teacherscount']; ?></td>
+		</tr>
+		<tr>
+			<td>Eingetragene Stundenplanänderungen</td>
+			<td><?php echo $genericStats['substitutioncount']; ?></td>
+		</tr>
+		<tr>
+			<td>Eingetragene Arbeiten</td>
+			<td><?php echo $genericStats['testscount']; ?></td>
+		</tr>
+		<tr>
+			<td>Eingetragene Hausaufgaben</td>
+			<td><?php echo $genericStats['homeworkcount']; ?></td>
+		</tr>
+	</tbody>
+</table>
+<br />
 <h3>Verteilung der Hausaufgaben nach Datum</h3>
 <div id="homeworkdiv" style="width:100%; height:400px;"></div>
 <br />
@@ -15,6 +47,7 @@
 
 
 	AmCharts.ready(function() {
+
 		var chart = new AmCharts.AmStockChart();
 		chart.pathToImages = "style/js/amcharts/images/";
 
@@ -58,7 +91,7 @@
 		chart.chartCursorSettings = chartCursorSettings;
 
 		var periodSelector = new AmCharts.PeriodSelector();
-		periodSelector.periods = [{period:"DD", count:1, label:"1 day"},
+		periodSelector.periods = [
 			{period:"DD", selected:true, count:5, label:"5 days"},
 			{period:"MM", count:1, label:"1 month"},
 			{period:"YYYY", count:1, label:"1 year"},
@@ -74,7 +107,7 @@
 		chartPie.titleField = "title";
 		chartPie.dataProvider = chartDataPie;
 		chartPie.depth3D = 20;
-		chartPie.angle = 30;
+		chartPie.angle = 50;
 		chartPie.write("homeworkpiediv");
 
 	});

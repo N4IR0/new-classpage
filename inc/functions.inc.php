@@ -6,6 +6,34 @@
 	function info($txt) {
 		echo "<div class=correct>$txt</div>";
 	}
+function getGenericStats() {
+	$query= "SELECT `id` FROM `homework`";
+	$result= mysql_query($query);
+	$homeworkcount = mysql_num_rows($result);
+
+	$query= "SELECT `id` FROM `tests`";
+	$result= mysql_query($query);
+	$testscount = mysql_num_rows($result);
+
+	$query= "SELECT `id` FROM `substitution`";
+	$result= mysql_query($query);
+	$substitutioncount = mysql_num_rows($result);
+
+	$query= "SELECT `id` FROM `teachers`";
+	$result= mysql_query($query);
+	$teacherscount = mysql_num_rows($result);
+
+	$query= "SELECT `id` FROM `users`";
+	$result= mysql_query($query);
+	$userscount = mysql_num_rows($result);
+
+	return array(
+		'homeworkcount' => $homeworkcount,
+		'testscount' => $testscount,
+		'substitutioncount' => $substitutioncount,
+		'teacherscount' => $teacherscount,
+		'userscount' => $userscount);
+}
 
 function getChartData($chartName, $chartType, $chartSource, $chartDataTitle = "title", $chartDataValue = "value") {
 	if ($chartType == "totalChart") {
