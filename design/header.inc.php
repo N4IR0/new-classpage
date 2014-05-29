@@ -53,6 +53,7 @@
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/amcharts/serial.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/amcharts/amstock.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/own.js"></script>
+	<script src="http://www.amcharts.com/lib/3/pie.js" type="text/javascript"></script>
 </head>
 
 <body>

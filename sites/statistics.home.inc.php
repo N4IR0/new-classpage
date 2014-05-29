@@ -1,37 +1,18 @@
-<div id="chartdiv" style="width:100%; height:400px;"></div>
+<h3>Verteilung der Hausaufgaben nach Datum</h3>
+<div id="homeworkdiv" style="width:100%; height:400px;"></div>
+<br />
+<h3>Verteilung der Hausaufgaben nach Fach</h3>
+<div id="homeworkpiediv" style="width:100%; height:400px;"></div>
+
 
 <script type="text/javascript">
 
 	<?php
-		$query= "SELECT `date` FROM `homework` ORDER BY `date`";
-		$result= mysql_query($query);
-		$i_total = mysql_num_rows($result);
-		$i = 1;
-
-		while($row = mysql_fetch_assoc($result)) {
-			if (isset($count[$row['date']])) {
-				$count[$row['date']]++;
-			} else {
-				$count[$row['date']] = 1;
-			}
-		}
-
-		$js ="var chartData= [\n";
-
-		foreach ($count as $timestamp => $value) {
-			$year = date("Y",$timestamp);
-			$month = date("n",$timestamp);
-			$day = date("j",$timestamp);
-			if ($i == $i_total) {
-				$js .="{date: new Date($year, $month, $day), val:$value}\n";
-			} else {
-				$js .="{date: new Date($year, $month, $day), val:$value},\n";
-			}
-			$i++;
-		}
-		$js .="];\n";
-		echo $js;
+	echo getChartData("chartData", "totalChart","homework");
+	echo getChartData("chartDataPie", "totalPie","homework");
 	?>
+
+
 
 	AmCharts.ready(function() {
 		var chart = new AmCharts.AmStockChart();
@@ -56,7 +37,6 @@
 		var graph = new AmCharts.StockGraph();
 		graph.valueField = "value";
 		graph.type = "column";
-		<?php echo "graph.title = \"Hausaufgaben pro Tag ( Insgesamt $i_total )\";"; ?>
 		graph.fillAlphas = 1;
 		stockPanel.addStockGraph(graph);
 
@@ -86,7 +66,18 @@
 			{period:"MAX", label:"MAX"}];
 		chart.periodSelector = periodSelector;
 
-		chart.write("chartdiv");
+		chart.write("homeworkdiv");
+
+
+		var chartPie = new AmCharts.AmPieChart();
+		chartPie.valueField = "value";
+		chartPie.titleField = "title";
+		chartPie.dataProvider = chartDataPie;
+		chartPie.depth3D = 20;
+		chartPie.angle = 30;
+		chartPie.write("homeworkpiediv");
+
 	});
 </script>
+
 <br />

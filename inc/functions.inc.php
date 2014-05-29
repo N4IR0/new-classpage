@@ -7,6 +7,74 @@
 		echo "<div class=correct>$txt</div>";
 	}
 
+function getChartData($chartName, $chartType, $chartSource, $chartDataTitle = "title", $chartDataValue = "value") {
+	if ($chartType == "totalChart") {
+
+		$query= "SELECT `date` FROM `$chartSource` ORDER BY `date`";
+		$result= mysql_query($query);
+		$i_total = mysql_num_rows($result);
+		$i = 1;
+
+		while($row = mysql_fetch_assoc($result)) {
+			if (isset($count[$row['date']])) {
+				$count[$row['date']]++;
+			} else {
+				$count[$row['date']] = 1;
+			}
+		}
+
+		$js ="var ".$chartName."= [\n";
+
+		foreach ($count as $timestamp => $value) {
+			$year = date("Y",$timestamp);
+			$month = date("n",$timestamp);
+			$day = date("j",$timestamp);
+			if ($i == $i_total) {
+				$js .="{date: new Date($year, $month, $day), val:$value}\n";
+			} else {
+				$js .="{date: new Date($year, $month, $day), val:$value},\n";
+			}
+			$i++;
+		}
+
+		$js .="];\n";
+
+		return $js;
+
+	} elseif ($chartType == "totalPie") {
+
+		$query = "SELECT `subject` FROM `$chartSource` ORDER BY `date`";
+		$result = mysql_query($query);
+		$i_total = mysql_num_rows($result);
+		$i = 1;
+
+		while($row = mysql_fetch_assoc($result)) {
+			if (isset($count[$row['subject']])) {
+				$count[$row['subject']]++;
+			} else {
+				$count[$row['subject']] = 1;
+			}
+		}
+
+		$js ="var ".$chartName."= [\n";
+
+		foreach ($count as $subject => $value) {
+			if ($i == $i_total) {
+				$js .="{".$chartDataTitle.": \"$subject\", ".$chartDataValue.":$value}";
+			} else {
+				$js .="{".$chartDataTitle.": \"$subject\", ".$chartDataValue.":$value},";
+			}
+			$i++;
+		}
+		$js .="];\n";
+		return $js;
+	}
+
+
+
+
+}
+
 function getScheduleData($type, $group, $id = NULL, $date = NULL) {
     $type = mysql_real_escape_string($type);
     $id = mysql_real_escape_string($id);
