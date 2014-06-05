@@ -19,4 +19,5 @@
 				echo "<td><a href=".$CONFIG["website"]["admin_path"]."timetable/general/delete/".$row["id"].">x</a></td>";
 			echo "</tr>";
 		}
+	echo "</table>";
 ?>
