@@ -15,8 +15,8 @@
 			echo "<tr>";
 				echo "<td>".date("d.m.Y", $row["date"])."</td>";
 				echo "<td>".$row["lesson"]."</td>";
-				echo "<td><a href=".$CONFIG["website"]["admin_path"]."timetable/general/edit/".$row["id"]."</td>";
-				echo "<td><a href=".$CONFIG["website"]["admin_path"]."timetable/general/delete/".$row["id"]."</td>";
+				echo "<td><a href=".$CONFIG["website"]["admin_path"]."timetable/general/edit/".$row["id"].">x</a></td>";
+				echo "<td><a href=".$CONFIG["website"]["admin_path"]."timetable/general/delete/".$row["id"].">x</a></td>";
 			echo "</tr>";
 		}
 ?>

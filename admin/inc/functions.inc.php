@@ -9,7 +9,10 @@
             $year = date("Y", $date);
             $date = mktime(0, 0, 0, $month, $day, $year);
         }
-        $sql = "SELECT `id`, `date`, `lesson`, `hours`, `teacher`, `group`, `notify_date` FROM `substitution` WHERE `date` >= '$date' ORDER BY `date`";
+		if (!is_numeric($type)) {
+			$type = 0;
+		}
+        $sql = "SELECT `id`, `date`, `lesson`, `hours`, `teacher`, `group`, `notify_date` FROM `substitution` WHERE `date` >= '$date' AND `type` = '$type' ORDER BY `date`";
         $result = mysql_query($sql);
         return $result;
     }
