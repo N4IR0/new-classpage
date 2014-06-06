@@ -37,7 +37,7 @@ $s = mysql_fetch_assoc($result);
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/amcharts/amcharts.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/amcharts/serial.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/amcharts/amstock.js"></script>
-	<script type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/jquery.dataTables.min.js"></script>
+	<script class="jsbin" type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/jquery.dataTables.min.js"></script>
 </head>
 
 <body>
