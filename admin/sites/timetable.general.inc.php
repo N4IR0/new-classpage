@@ -9,7 +9,7 @@
 
 	echo "<h3>Schulfreie Tage</h3>";
 	$result = getSubstitution(2);
-	echo "<table id='table'>";
+	echo "<table class='datatables'>";
 		echo "<thead>";
 			echo "<tr>";
 				echo "<th>Datum</th>";

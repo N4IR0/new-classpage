@@ -45,7 +45,7 @@
   <link href="<?php echo $CONFIG["website"]["path"]; ?>style/css/amcharts/style.css" rel="stylesheet" type="text/css">
 	
 	<!-- JavaScripts-->
-	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery/jquery.form-validator.min.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery/jNice.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery/jquery.tipsy.js"></script>
