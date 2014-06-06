@@ -29,7 +29,9 @@ $s = mysql_fetch_assoc($result);
 	<link href="<?php echo $CONFIG["website"]["admin_path"]; ?>style/css/datatables/jquery.dataTables.css" rel="stylesheet" type="text/css">
 
 	<!-- JavaScripts-->
-	<script type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/jquery/jquery.min.js"></script>
+	<!--<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery/jquery.min.js"></script>-->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/jquery/jquery.form-validator.min.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/jquery/jNice.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/jquery/jquery.tipsy.js"></script>
