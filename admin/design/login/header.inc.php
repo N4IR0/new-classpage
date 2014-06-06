@@ -7,7 +7,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
 	<!-- CSS -->
-	<link href="<?php echo $CONFIG["website"]["admin_path"]; ?>style/css/login.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="<?php echo $CONFIG["website"]["admin_path"]; ?>style/css/design/login.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 
 <body>

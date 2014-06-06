@@ -40,20 +40,20 @@
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
 
 	<!-- CSS -->
-	<link href="<?php echo $CONFIG["website"]["path"]; ?>style/css/transdmin.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="<?php echo $CONFIG["website"]["path"]; ?>style/css/tipsy.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="<?php echo $CONFIG["website"]["path"]; ?>style/css/design/transdmin.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="<?php echo $CONFIG["website"]["path"]; ?>style/css/tipsy/tipsy.css" rel="stylesheet" type="text/css" media="screen" />
   <link href="<?php echo $CONFIG["website"]["path"]; ?>style/css/amcharts/style.css" rel="stylesheet" type="text/css">
 	
 	<!-- JavaScripts-->
-	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery.js"></script>
-	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery.form-validator.min.js"></script>
-	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jNice.js"></script>
-	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery/jquery.form-validator.min.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery/jNice.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery/jquery.tipsy.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/amcharts/amcharts.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/amcharts/serial.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/amcharts/amstock.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/amcharts/pie.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/own.js"></script>
-	<script src="http://www.amcharts.com/lib/3/pie.js" type="text/javascript"></script>
 </head>
 
 <body>
