@@ -1,3 +1,5 @@
 $(function(){
-    $('.datatables').dataTable();
+    $(document).ready(function() {
+        $('.datatables').dataTable();
+    });
 });
