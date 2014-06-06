@@ -185,6 +185,7 @@ h2 a:hover { text-decoration: underline; }
 	float: right;
 	padding: 10px 19px 0 0;
 	font-size: 14px;
+    padding-bottom: 15px;
 }
 
 h3 {
@@ -207,8 +208,11 @@ h4 {
 	border-bottom: 1px solid #aaa;
 }
 
-
 #main table {
+    padding-top: 5px;
+}
+
+#main table:not(.datatables) {
 	width: 700px;
 	border: 2px solid #ddd;
 	padding: 19px;

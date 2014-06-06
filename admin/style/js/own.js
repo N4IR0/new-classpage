@@ -1,3 +1,5 @@
-$(document).ready(function() {
-    $('.datatables').dataTable();
+$(function(){
+    $('.datatables').dataTable({
+        "autoWidth": false
+    });
 });
