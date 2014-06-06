@@ -4,7 +4,7 @@
 
 	echo "<h3>Schulfreie Tage</h3>";
 	$result = getSubstitution(2);
-	echo "<table class='freedays'>";
+	echo "<table class='datatables'>";
 		echo "<tr>";
 			echo "<th>Datum</th>";
 			echo "<th>Grund</th>";
