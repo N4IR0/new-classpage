@@ -74,20 +74,36 @@ h1 a {
 }
 
 #mainNav li.logout {
+    float: right;
+    border-left: 1px solid #ddd;
+    border-right: none;
+    background-image: url(../img/logout.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#mainNav li.login {
 	float: right;
 	border-left: 1px solid #ddd;
 	border-right: none;
-	background-image: url(../img/logout.png);
+	background-image: url(../img/locked.png);
 	background-repeat: no-repeat;
 	background-position: center;
 }
 
 #mainNav li a:hover { background: #fdfcf6; }
-#mainNav li.logout a:hover { 
+#mainNav li.login a:hover {
 	background: #fdfcf6;
-	background-image: url(../img/logout.png);
+	background-image: url(../img/locked.png);
 	background-repeat: no-repeat;
 	background-position: center;
+}
+
+#mainNav li.logout a:hover {
+    background: #fdfcf6;
+    background-image: url(../img/logout.png);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #mainNav li a.active, #mainNav li a.active {

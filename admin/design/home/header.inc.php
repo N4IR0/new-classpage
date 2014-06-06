@@ -26,15 +26,18 @@ $s = mysql_fetch_assoc($result);
 	<link href="<?php echo $CONFIG["website"]["admin_path"]; ?>style/css/transdmin.css" rel="stylesheet" type="text/css" media="screen" />
 	<link href="<?php echo $CONFIG["website"]["admin_path"]; ?>style/css/tipsy.css" rel="stylesheet" type="text/css" media="screen" />
 	<link href="<?php echo $CONFIG["website"]["admin_path"]; ?>style/css/amcharts/style.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo $CONFIG["website"]["admin_path"]; ?>style/css/jquery.dataTables.css" rel="stylesheet" type="text/css">
 
 	<!-- JavaScripts-->
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/jquery.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/jquery.form-validator.min.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/jNice.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/own.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/amcharts/amcharts.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/amcharts/serial.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/amcharts/amstock.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["admin_path"]; ?>style/js/jquery.dataTables.min.js"></script>
 </head>
 
 <body>
