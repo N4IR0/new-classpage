@@ -1,10 +1,15 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#table').dataTable();
+	} );
+</script>
 <?php
 	echo "<h3>Schulzeit</h3>";
     echo "<p>Coming soon...</p>";
 
 	echo "<h3>Schulfreie Tage</h3>";
 	$result = getSubstitution(2);
-	echo "<table id='datatables'>";
+	echo "<table id='table'>";
 		echo "<tr>";
 			echo "<th>Datum</th>";
 			echo "<th>Grund</th>";
