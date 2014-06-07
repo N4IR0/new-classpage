@@ -205,17 +205,17 @@ function getScheduleData($type, $group, $id = NULL, $date = NULL) {
 					$teach_sql = "SELECT `name` FROM `teachers` WHERE `lessons` LIKE '%".$day[$i]."%'";
 					$teach_result = mysql_query($teach_sql);
 					$teach_num = mysql_num_rows($teach_result);
-					$subst_sql = "SELECT `type`, `date`, `lesson`, `hours`, `teacher`, `group` FROM `substitution` WHERE `date` = $date AND (`group` = 0 OR `group` = $group) AND `hours` LIKE '%".$row["id"]."%'";
+					$subst_sql = "SELECT `type`, `date`, `lesson`, `hours`, `teacher`, `group` FROM `substitution` WHERE `date` = $date AND (`group` = 0 OR `group` = $group) AND (`hours` = '*' OR `hours` LIKE '%".$row["id"]."%')";
 					$subst_result = mysql_query($subst_sql);
 					$subst_num = mysql_num_rows($subst_result);
 					if ($subst_num != 0) {
 						$substitution = mysql_fetch_assoc($subst_result);
 						$timetable .= "<td style='text-align: center; color: #FF0000;'>";
-						if ($substitution["type"] == 0) {
-							$timetable .= "<b>--</b>";
-						} elseif ($substitution["type"] == 2) {
+						if ($substitution["type"] == 2) {
 							$timetable .= "<b>--</b><br>";
 							$timetable .= "$substitution[lesson]";
+						} elseif ($substitution["type"] == 0) {
+							$timetable .= "<b>--</b>";
 						} else {
 							$timetable .= "<b>$substitution[lesson]</b><br>";
 							$timetable .= "$substitution[teacher]";
