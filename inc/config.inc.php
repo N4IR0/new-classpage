@@ -3,7 +3,7 @@
 	
 	//Datenbank Einstellungen
 	$MYSQL["server"] = "localhost";
-	$MYSQL["user"] = "fi13a";
+	$MYSQL["user"] = "root";
 	$MYSQL["password"] = "changeme";
 	$MYSQL["database"] = "fi13a";
 	

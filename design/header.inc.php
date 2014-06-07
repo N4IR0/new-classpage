@@ -43,11 +43,13 @@
 	<link href="<?php echo $CONFIG["website"]["path"]; ?>style/css/design/transdmin.css" rel="stylesheet" type="text/css" media="screen" />
 	<link href="<?php echo $CONFIG["website"]["path"]; ?>style/css/tipsy/tipsy.css" rel="stylesheet" type="text/css" media="screen" />
   <link href="<?php echo $CONFIG["website"]["path"]; ?>style/css/amcharts/style.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo $CONFIG["website"]["path"]; ?>style/css/datatables/jquery.dataTables.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo $CONFIG["website"]["path"]; ?>style/css/ui-lightness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" type="text/css">
 	
 	<!-- JavaScripts-->
-	<!--<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery/jquery.min.js"></script>-->
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"></script>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery/jquery-ui-1.10.4.custom.min.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery/jquery.form-validator.min.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery/jNice.js"></script>
 	<script type="text/javascript" src="<?php echo $CONFIG["website"]["path"]; ?>style/js/jquery/jquery.tipsy.js"></script>

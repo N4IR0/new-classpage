@@ -192,7 +192,7 @@
 			
 			$this->add("<p>");
 			$this->add("<label for=$name>$lable:</label>");
-			$this->add("<input type=date name=$name id=$name value='$value' $d />");
+			$this->add("<input type=date class='datepicker' name=$name id=$name value='$value' $d />");
 			$this->add("</p>");		
 		}
 		

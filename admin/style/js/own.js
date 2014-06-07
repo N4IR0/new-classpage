@@ -1,5 +1,11 @@
-$(function(){
-    $(document).ready(function() {
-        $('#datatables').dataTable();
+$(document).ready(function() {
+    $('.datatables').dataTable({
+        ordering: false
+    });
+    $( ".datepicker" ).datepicker({
+        dateFormat: "dd.mm.yy"
+    });
+    $.validate({
+        modules : 'date'
     });
 });

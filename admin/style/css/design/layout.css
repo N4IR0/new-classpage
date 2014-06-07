@@ -468,7 +468,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 .help-block {
-	height: 25px;
+	height: 15px;
 	display: table-cell;
 	vertical-align: middle;
 	color: #AAAAAA;
@@ -477,7 +477,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 .form-error {
-	height: 25px;
+	height: 15px;
 	display: table-cell;
 	vertical-align: middle;
 	color: red;

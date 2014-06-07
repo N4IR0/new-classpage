@@ -191,6 +191,14 @@ function getScheduleData($type, $group, $id = NULL, $date = NULL) {
 			$day[4] = $row["fri"];
 			$date = getMonday($timestamp);
 			for ($i = 0; $i <= 4; $i++) {
+				$time_sql = "SELECT `id` FROM `schooltime` WHERE `from` <= '$date' AND `to` >= '$date'";
+				$time_result = mysql_query($time_sql);
+				$time_num = mysql_num_rows($time_result);
+				if ($time_num == 0) {
+					$timetable .= "<td style='text-align: center; color: #04B404;'><b>Keine Schule!</b></td>";
+					$date = $date + (60*60*24);
+					continue;
+				}
 				if (empty($day[$i])) {
 					$timetable .= "<td></td>";
 				} else {
