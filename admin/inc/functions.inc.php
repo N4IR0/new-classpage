@@ -23,7 +23,7 @@
 
 	function getSchooltime($time=NULL) {
 		if (!isset($time) || !is_numeric($time)) {
-			$sql = "SELECT `id`, `from`, `to`, `year` FROM `schooltime`";
+			$sql = "SELECT `id`, `from`, `to`, `year` FROM `schooltime` ORDER BY `from`";
 			$result = mysql_query($sql);
 			return $result;
 		} else {
