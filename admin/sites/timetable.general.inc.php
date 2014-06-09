@@ -104,10 +104,10 @@
 			} else {
 				error("Fehlerhafter Paramter!");
 			}
-		} elseif ($_GET["id1"] == "edit" && isset($_GET["id2"]) && !empty($_GET["id2"])) {
+		} elseif ($_GET["id1"] == "edit" && isset($_GET["id2"]) && !empty($_GET["id2"]) && is_numeric($_GET["id2"])) {
 			echo "<h3>Schulfreien Tag ändern</h3>";
 			echo "<br>";
-			$id = mysql_real_escape_string($_GET["id2"]);
+			$id = $_GET["id2"];
 			$sql = "SELECT `date`, `lesson` FROM `substitution` WHERE `id` = '$id' AND `type` = '2'";
 			$result = mysql_query($sql);
 
@@ -158,10 +158,10 @@
 			} else {
 				error("Fehlerhafter Paramter!");
 			}
-		} elseif ($_GET["id1"] == "delete" && isset($_GET["id2"])) {
+		} elseif ($_GET["id1"] == "delete" && isset($_GET["id2"]) && !empty($_GET["id2"]) && is_numeric($_GET["id2"])) {
 			echo "<h3>Schulfreien Tag löschen</h3>";
 			echo "<br>";
-			$id = mysql_real_escape_string($_GET["id2"]);
+			$id = $_GET["id2"];
 			$sql = "SELECT `lesson` FROM `substitution` WHERE `id` = '$id' AND `type` = '2'";
 			$result = mysql_query($sql);
 			if (mysql_num_rows($result) > 0) {
@@ -185,10 +185,10 @@
 			} else {
 				error("Fehlerhafter Paramter!");
 			}
-		} elseif ($_GET["id1"] == "edit2" && isset($_GET["id2"]) && !empty($_GET["id2"])) {
+		} elseif ($_GET["id1"] == "edit2" && isset($_GET["id2"]) && !empty($_GET["id2"]) && is_numeric($_GET["id2"])) {
 			echo "<h3>Schulblock ändern</h3>";
 			echo "<br>";
-			$id = mysql_real_escape_string($_GET["id2"]);
+			$id = $_GET["id2"];
 			$sql = "SELECT `from`, `to`, `year` FROM `schooltime` WHERE `id` = '$id'";
 			$result = mysql_query($sql);
 
@@ -259,10 +259,10 @@
 			} else {
 				error("Fehlerhafter Parameter!");
 			}
-		} elseif ($_GET["id1"] == "delete2" && isset($_GET["id2"]) && !empty($_GET["id2"])) {
+		} elseif ($_GET["id1"] == "delete2" && isset($_GET["id2"]) && !empty($_GET["id2"]) && is_numeric($_GET["id2"])) {
 			echo "<h3>Schulblock löschen</h3>";
 			echo "<br>";
-			$id = mysql_real_escape_string($_GET["id2"]);
+			$id = $_GET["id2"];
 			$sql = "SELECT `from`, `to` FROM `schooltime` WHERE `id` = '$id'";
 			$result = mysql_query($sql);
 			if (mysql_num_rows($result) > 0) {
