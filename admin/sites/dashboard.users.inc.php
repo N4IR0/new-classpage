@@ -35,15 +35,16 @@
 	if($_GET['id1']=="edit") {
 		echo "<h3>Benutzer bearbeiten</h3>";
 		if(isset($_POST['form2'])) {
-			if($_POST['name']=="" OR $_POST['email']=="" OR $_POST['user_lvl']=="" OR $_POST['activ']=="") {
+			if($_POST["name"]=="" OR $_POST['username']=="" OR $_POST['email']=="" OR $_POST['user_lvl']=="" OR $_POST['activ']=="") {
 				error("Bitte fülle alle Felder aus!");
 			} else {
+				$username = mysql_real_escape_string($_POST['username']);
 				$name = mysql_real_escape_string($_POST['name']);
 				$mail = mysql_real_escape_string($_POST['email']);
 				$user_lvl = mysql_real_escape_string($_POST['user_lvl']);
 				$activ = mysql_real_escape_string($_POST['activ']);
 				$id2 = mysql_real_escape_string($_GET['id2']);
-				$insql = "UPDATE users SET user='$name', email='$mail', user_lvl='$user_lvl', activ='$activ' WHERE id='$id2'";
+				$insql = "UPDATE users SET user='$username', name='$name', email='$mail', user_lvl='$user_lvl', activ='$activ' WHERE id='$id2'";
 				if(mysql_query($insql)) {
 					info("Der User wurde erfolgreich bearbeitet!");
 				} else {
@@ -60,7 +61,8 @@
 				error("Der Benutzer wurde nicht gefunden!");
 			} else {
 				$form2 = new formbuilder("form2", "Speichern");
-				$form2->textfield("Name", "name", $row['user']);
+				$form2->textfield("Username", "username", $row['user']);
+				$form2->textfield("Name", "name", $row['name']);
 				$form2->email("E-Mail", "email", $row['email']);
 				
 				$sql2 = "SELECT * FROM user_lvl";
@@ -85,15 +87,16 @@
 	if($_GET['id1']=="new") {
 		echo "<h3>Benutzer anlegen</h3>";
 		if(isset($_POST['form1'])) {
-			if($_POST['name']=="" OR $_POST['email']=="" OR $_POST['password']=="" OR $_POST['user_lvl']=="" OR $_POST['activ']=="") {
+			if($_POST['name']=="" OR $_POST['username']=="" OR $_POST['email']=="" OR $_POST['password']=="" OR $_POST['user_lvl']=="" OR $_POST['activ']=="") {
 				error("Bitte fülle alle Felder aus!");
 			} else {
+				$username = mysql_real_escape_string($_POST['username']);
 				$name = mysql_real_escape_string($_POST['name']);
 				$password = hash("sha256", $_POST['password']);
 				$mail = mysql_real_escape_string($_POST['email']);
 				$user_lvl = mysql_real_escape_string($_POST['user_lvl']);
 				$activ = mysql_real_escape_string($_POST['activ']);
-				$insql = "INSERT INTO users VALUES ('', '$name', '$password', '$mail', '$user_lvl', '$activ')";
+				$insql = "INSERT INTO users VALUES ('', '$username', '$password', '$name', '$mail', '$user_lvl', '$activ')";
 				if(mysql_query($insql)) {
 					info("Der User wurde erfolgreich angelegt!");
 				} else {
@@ -103,6 +106,7 @@
 		}			
 		
 		$form1 = new formbuilder("form1", "Erstellen");
+		$form1->textfield("Username", "username");
 		$form1->textfield("Name", "name");
 		$form1->password("Passwort", "password");
 		$form1->email("E-Mail", "email");
